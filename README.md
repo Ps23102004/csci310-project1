@@ -1,10 +1,12 @@
 # Skyline Religion — CSCI 310 Project 1
 
-This repository contains a static course homepage (`index.html`) and a separate interactive fashion demonstration (`skyline-religion.html`). Open the homepage through a static HTTP server, such as `python3 -m http.server 8000`, and visit `http://localhost:8000/`. The HTML, CSS, JavaScript, and `assets/` files are sufficient for the classroom demonstration and GitHub Pages. The optional Node backend is not available on GitHub Pages; to test it locally, run `npm test`.
+**Live site (GitHub Pages):** https://ps23102004.github.io/csci310-project1/
 
-**Important:** The shopping bag, checkout preview, promo codes, stock counts, newsletter form, brand copy, and receipt are demonstration features. No payment is collected, order is placed, delivery is scheduled, or email is submitted. The optional stylist may fall back to local heuristic advice and must not be described as live model inference unless its response confirms that engine. The public GitHub Pages URL and submission deadline have not been verified in this source package.
+This repository contains a personal homepage (`index.html`), the six-block **My Project** overview page (`projects.html`), and a separate interactive fashion demonstration (`skyline-religion.html`, linked from Block 1). Open the homepage through a static HTTP server, such as `python3 -m http.server 8000`, and visit `http://localhost:8000/`. The HTML, CSS, JavaScript, and `assets/` files are sufficient for the classroom demonstration and GitHub Pages. The optional Node backend is not available on GitHub Pages; to test it locally, run `npm test`.
 
-For the course walkthrough, use `CSCI310_DEMO_GUIDE.md` and `Development_Notebook_2026F.md`. Presentation slides are in `CSCI310_Skyline_Religion_Slides.pdf`, with editable source in `CSCI310_Skyline_Religion_Slides.html`. Before submitting, deploy and verify a public GitHub Pages URL and check the course submission deadline. The notebook does not contain the full original AI conversation transcript; add authentic prompt/response exports when the course documentation site is available.
+**Important:** The shopping bag, checkout preview, promo codes, stock counts, newsletter form, brand copy, and receipt are demonstration features. No payment is collected, order is placed, delivery is scheduled, or email is submitted. The optional stylist may fall back to local heuristic advice and must not be described as live model inference unless its response confirms that engine. The GitHub Pages deployment was checked in a real browser on 2026-09-23 (see the notebook).
+
+For the course walkthrough, use `CSCI310_DEMO_GUIDE.md` and `Development_Notebook_2026F.md`. Presentation slides are submitted alongside this folder as `CSCI310_Project1_Slides_Parth_Singh.pdf`. The notebook does not contain the full original AI conversation transcript; add authentic prompt/response exports when the course documentation site is available.
 
 ---
 
@@ -29,7 +31,8 @@ Based on user feedback, this plan details the complete expansion of **Skyline Re
 
 ```
 skyline-religion/
-├── index.html                   # CSCI 310 Course Hub & Personal Bio
+├── index.html                   # Personal homepage (bio) with link to My Project
+├── projects.html                # "My Project" six-block overview (Figures 1 & 2)
 ├── skyline-religion.html        # Main Digital Flagship Home / Hero / Lookbook
 ├── sweatshirts.html             # Dedicated: Heavyweight Hoodies & Crewnecks (Monolithic Stone Art)
 ├── gym.html                     # Dedicated: Gym & Athletic Performance (Inspiring Kinetic Art)

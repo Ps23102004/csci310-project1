@@ -167,3 +167,28 @@ Design a responsive personal project demonstration website intended for GitHub P
 - **Fix applied:** Brightened all four underexposed front photos (`sr-04`, `sr-05`, `sr-06`, `sr-11`) using PIL `ImageEnhance.Brightness` with a per-file factor computed to bring each to the healthy ~57–62 mean-brightness range. Originals preserved as `*-front.orig.jpg` next to each file. No code changes were made — the filter and image-path bugs did not reproduce against the current code, so nothing there needed fixing. Verified the visual result in the same live browser session (screenshot of `product.html?id=sr-06`).
 - **Presentation deck:** Built with Claude's Artifact tool (Slides Appifact type) at the user's request, reusing the four-minute script and honest evidence/limits framing already established in `CSCI310_Skyline_Religion_Slides.html`/`.pdf` (2026-09-22), and adding one new slide ("QA pass — today") documenting the verification above with a before/after brightness comparison image. The deck lives as a private, editable web artifact; exporting it to `.pptx`/PDF for Keynote, PowerPoint, or Google Slides is a manual download step from that page, not an automated file-generation step, and is recorded here as such rather than claimed as a delivered file.
 - **Limits of this entry:** This documents tool calls and their outputs as observed in this session; it is not a claim that the Gemini CLI session's earlier report was made in bad faith, nor a certification of the Playwright/Jev API infrastructure's own reliability beyond what was directly observed here.
+
+---
+
+## 2026-09-23 (later) — Requirement fixes, GitHub Pages deployment, and slide revision
+
+- **Contributor / task:** Parth Singh, with AI assistance from Claude in the Claude desktop app (Cowork mode). Goal: close the remaining handout gaps before submission.
+- **Prompts (as given by Parth):**
+  1. "can you add some more detail in it so i can present for 4-5 min and make it better" (the slide deck).
+  2. After Claude reviewed the handout PDF, this notebook, and the project ZIP and listed gaps: "fix all those and provide me ready to submit files on my desk top". Parth then chose, when asked, to (a) have Claude try the GitHub Pages deployment and (b) split the homepage and the My Project page.
+- **What the AI reported back before any change (response summary):** Hosting on GitHub Pages (20% of the website grade) had not been done; the deck had no slide mapping the handout requirements; the older notebook draft still claimed 60fps, an Apple Pay checkout, and 100% layout compliance; the AI-tools slide overstated what the notebook logged; the homepage and My Project grid shared one page, which is a weaker reading of requirement 7; Block 1's copy said "6 dynamic effects" while the project claims 5.
+- **Changes made:**
+  1. **Homepage / project page split.** `index.html` is now the personal homepage (bio card plus a "View My Project" link). The six-block grid moved unchanged to `projects.html` under the heading "My Project". The "CSCI 310 Hub" links on the storefront pages now point to `projects.html`. Block 1 copy changed from "6 dynamic effects" to "5 client-side JavaScript effects". No CSS or JavaScript was changed.
+  2. **Cleanup for submission.** Excluded tool caches (`.serena/`, `.playwright-cli/`, `.impeccable/`), the unused 56 MB `assets/hires_pack/` source pack (no page references it), the `*.orig.jpg`/`.bak` image backups, and the superseded 2026-09-22 slide files.
+  3. **GitHub Pages deployment.** Created the public repository `Ps23102004/csci310-project1`, pushed the cleaned site, and enabled Pages from `main` / root.
+     - Repository: https://github.com/Ps23102004/csci310-project1
+     - Live site: https://ps23102004.github.io/csci310-project1/
+  4. **Slides revised** (Claude Artifact, Slides type): full timed speaker script (about 4:50, or about 4:15 without the QA slide); new "Requirements check" slide mapping every handout item; all slide text 24 px or larger; corrected AI-tool wording; exported to `CSCI310_Project1_Slides_Parth_Singh.pdf`.
+- **Verification (Playwright + headless Chromium, run both on a local static server and against the live GitHub Pages URL; results identical):**
+  - Homepage has no `<table>`; its "View My Project" link opens `projects.html`; heading is "My Project".
+  - Desktop (1280 px): grid columns `200px 200px 200px`, section 720 px wide, Block 1 image 200 × 150, desktop copy shown.
+  - Mobile (390 px, touch): grid columns `120px 120px`, section 300 px, Block 1 image 120 × 90 and switches to `sr-01-detail.jpg`, mobile copy shown, no horizontal overflow.
+  - Effect 1: the refraction canvas output changes when the pointer moves. Effect 2: theme toggle flips `data-theme` from light to dark. Effect 3: hovering a card sets a 3D `rotateX/rotateY` transform. Effect 4: 12 products total; the Outerwear filter shows 3; searching "hoodie" shows 4. Effect 5: after adding an item, increasing the quantity, and applying SKYLINE10, the total went $195.00 → $390.00 → $351.00. The receipt says no order, payment, or delivery occurred.
+  - Product page `sr-01`: all 4 angle buttons clicked. Category pages rendered 3 / 1 / 3 / 3 product cards (sweatshirts / gym / streetwear / loungewear).
+  - Zero HTTP 4xx/5xx responses and zero JavaScript page errors across all of the above.
+- **Still not established:** a full accessibility (WCAG) review; local model availability on the presentation machine (the optional backend is not part of GitHub Pages). The course Document Site still needs the authentic full prompt/response transcripts; this notebook summarizes them.

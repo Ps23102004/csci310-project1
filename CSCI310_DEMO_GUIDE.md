@@ -1,46 +1,32 @@
-# CSCI 310 Project 1 — Demo Guide
+# CSCI 310 Project 1: Demo Guide
 
-**Presenter:** Parth Singh · **Project:** Personal project website + Skyline Religion interactive demo · **Status:** local demonstration; GitHub Pages deployment not verified here · **Updated:** 2026-09-22
+**Presenter:** Parth Singh · **Live site:** https://ps23102004.github.io/csci310-project1/ · **Updated:** 2026-09-23
 
-## Assignment and talk timing
+The grading rubric asks for a 4-minute presentation that shows how the site was developed and that it meets the requirements. The full script below runs about 4:50. Skip slide 8 (QA pass) to finish near 4:15. Q&A comes after.
 
-The local `project1_personal_work_demo_2026F.pdf` asks for a personal project website hosted on GitHub Pages; an entry homepage and six-block **My Project** overview; desktop and mobile layouts with text **and image changes** on mobile; organized HTML/CSS/JS files; and a page with at least **five client-side JavaScript dynamic effects**. It permits jQuery or pure JavaScript, prohibits React/Vue/Angular, and permits Material UI or Bootstrap components. The submission is a **ZIP including slides**. The presentation section describes about five minutes plus one minute Q&A, while the grading section calls for a **four-minute presentation**. Rehearse a four-minute core and leave Q&A separate. Hosting is worth 20% of the website component; do not say that requirement is complete without a tested public URL.
+## Before you start
 
-## Four-minute core script
+- Open the live site in a second browser window: homepage, then **View My Project**, then Block 1.
+- Have DevTools device mode ready at 390 px (iPhone 12 Pro) to show the mobile layout.
+- Don't type a real email address into the newsletter demo.
 
-| Time | Show | Say / point to |
+## Timed script (slides: `CSCI310_Project1_Slides_Parth_Singh.pdf`)
+
+| Time | Slide | What to say / do |
 |---|---|---|
-| 0:00–0:30 | `index.html` | “I’m Parth Singh. This is my personal project overview and the entry point to my Skyline Religion GUI demo. It uses HTML, CSS and vanilla JavaScript.” |
-| 0:30–1:15 | Desktop project grid, then 390px viewport | Point to **My Project**, six reserved blocks, three columns on desktop and two on mobile. On Block 1, the mobile `<picture>` swaps to a fabric-detail photo and the shorter mobile copy replaces desktop copy. Other blocks are future-project placeholders, not completed linked projects. CSS expresses a 720px desktop section with 200×150px imagery, and a 300px mobile section with 120×90px imagery; compare the rendered page to the handout figures instead of claiming pixel-perfect compliance by inspection alone. |
-| 1:15–1:35 | Click Block 1 → `skyline-religion.html` | Explain that the course overview links to the separate storefront demonstration; its cart and checkout are a class-project simulation, not commerce. |
-| 1:35–3:20 | Five effects in succession | **1** Move pointer over hero: canvas light response (`refraction.js`). **2** Toggle light/dark theme (`theme.js`). **3** Hover a product card: tilt/glare (`motion.js`). **4** Filter/search products and open a product inspection/size interface (`catalog.js`). **5** Add an item, adjust quantity, use `SKYLINE10`, open the checkout **preview** (`cart.js`). Verify each interaction in the chosen browser before presenting; if one fails, substitute another working client-side effect rather than asserting success. |
-| 3:20–4:00 | `css/`, `js/`, `backend/` overview and closing slide | Highlight file organization and why the client-side interactions do not depend on React/Vue/Angular. Optional Node backend offers API and stylist features locally, with a heuristic fallback if the local model is unavailable. “The preview takes no payment, places no order, and sends no newsletter email.” Close with candid outstanding checks: public hosting and complete accessibility review. |
+| 0:00–0:25 | 1 Cover | "Hi, I'm Parth. Project 1 asked for a personal homepage, a My Project page with six blocks, and one interactive project. Mine is Skyline Religion, a storefront concept for my streetwear brand, built with plain HTML, CSS, and vanilla JavaScript." |
+| 0:25–1:00 | 2 Brief | Desktop: 3 columns in a 720 px section, 200 × 150 images. Mobile (390 px): 2 columns in a 300 px section, 120 × 90 images. On mobile, Block 1 swaps both its image and its text. The layout is CSS Grid with no tables. *Toggle device mode.* |
+| 1:00–1:30 | 3 Structure | `index.html` homepage → `projects.html` My Project → `skyline-religion.html` storefront. Five JS files, one job each. The optional Node backend isn't needed for any effect. No frameworks. *Click Block 1.* |
+| 1:30–2:30 | 4 Interaction (live) | 1) Move the cursor: the canvas light follows it. 2) Theme toggle. 3) Hover a card: tilt and glare. 4) Filter, search, open a product, switch angles. 5) Add to bag, change quantity, apply SKYLINE10: the total updates. |
+| 2:30–2:55 | 5 Boundary | The checkout is a preview: the receipt is labeled as a demo, and no payment, order, delivery, or signup happens. |
+| 2:55–3:25 | 6 AI disclosure | Claude Code built it across 12 iterations. Playwright, TypeSafe's Jev model, and Pillow were used to check it. Everything is logged in the development notebook. |
+| 3:25–3:55 | 7 Requirements | Go through the handout line by line. Everything is done, including hosting (show the live URL). The only open item is a full accessibility review. |
+| 3:55–4:30 | 8 QA pass (optional) | Three reported bugs; two were false. The black photo was real, and 4 photos were affected, not 1. Mean brightness went from 23.8 to 57.8. Lesson: verify the claim before fixing the code. |
+| 4:30–4:50 | 9 Close | A responsive hub, five interactions, clear limits, now live on GitHub Pages. Thank you, questions? |
 
-If time allows, show category pages, the product detail view, and stylist drawer as **extensions**, not substitutes for the required five browser-visible effects.
+## Likely questions
 
-## Demo setup and fallback
-
-1. Open `index.html` in a browser (or serve the directory locally if file-origin browser policies interfere). Keep `skyline-religion.html` ready in another tab. The static presentation should not require the optional backend.
-2. In DevTools, compare a desktop width and **390px** mobile width. Show that Block 1 changes both artwork and text. Check the other six-block layout against Figure 1 and Figure 2 in the PDF. Do not infer exact compliance solely from CSS declarations.
-3. Clear stale demo cart state if it would obscure the flow. Add a product before pressing “Preview demo checkout.” The result is an illustrative receipt/order ID, **not** Apple Pay, biometric authentication, a charge, an order, or scheduled delivery.
-4. The newsletter success state explicitly says no email was sent or saved. Do not submit real addresses for a demonstration.
-5. If demonstrating the optional backend, run `node backend/server.js` in one terminal and `node backend/test-api.js` in another. The stylist API attempts a local MLX service at `127.0.0.1:8767` and otherwise returns heuristic advice. Distinguish the engine observed in the API response; never call fallback text a live model answer.
-6. If navigation, model service, or browser rendering differs on the presentation machine, return to the static course grid and document the limitation instead of claiming it worked.
-
-## Evidence and limits
-
-- **Source inspection (2026-09-22):** `index.html` has the six-block grid and Block 1 `<picture>` and separate desktop/mobile copy; `css/style.css` declares the responsive grid; the scripts include canvas, theme, motion, catalog and cart interactions. Source inspection alone is not an end-to-end browser or accessibility audit.
-- **Coordinator-reported browser QA (2026-09-22):** Desktop showed six blocks in three columns; 390px mobile showed six blocks in two columns with Block 1 asset and copy swaps, and inspected pages showed no horizontal overflow at 390px. Product detail rendered after removal of a stale dossier section. Newsletter preview did not save or submit an email; wishlist empty state updated immediately; cart refused a ninth unit when stock was eight; and the receipt stated no order, payment or delivery. These checks do not establish perfect pixel fidelity, cross-browser support, or complete accessibility.
-- **Checkout implementation:** `js/cart.js` labels its confirmation “Demo checkout preview” and states no payment/order/delivery. `backend/server.js` has a separate **in-memory simulated-order** checkout response (`paid_simulated`); those local test orders are not real purchases or payment processing.
-- **Backend API test (2026-09-22):** Started the local backend on isolated port 31987 and ran `PORT=31987 node backend/test-api.js`: **12 passed, 0 failed**. These are API checks, not proof of frontend behavior, deployment, real payments, or live model inference.
-- **Not verified here:** live GitHub Pages URL, deployment, perfect figure geometry, cross-browser/mobile performance, screen-reader coverage, WCAG conformance, real MLX availability on the presentation machine, or a complete original AI prompt/response transcript.
-
-## Q&A answers
-
-- **Why vanilla JS?** The handout permits jQuery or pure JavaScript and prohibits sophisticated frameworks including React, Vue and Angular. Vanilla JS keeps DOM behavior visible for assessment.
-- **Is checkout live?** No. Local cart state and illustrative receipt demonstrate event handling and calculation; no payment, fulfillment or order is processed.
-- **Is the stylist always AI-powered?** No. It requires the optional local backend/model service; the backend can return heuristic fallback advice.
-- **Is it hosted?** The handout requires GitHub Pages, but provide a public tested URL only if one has actually been deployed and checked. Otherwise say hosting remains outstanding.
-- **Is it accessible?** There are accessibility-oriented hooks such as labels and reduced-motion handling, but no comprehensive audit is documented. Do not claim universal keyboard support or WCAG compliance.
-
-**Submission check:** The local ZIP `../Skyline_Religion_CSCI310_Project1_2026-09-22.zip` includes the HTML/CSS/JS/assets, this guide, the notebook, and the PDF and editable HTML slides. Its required entries and ZIP integrity were verified locally. Public GitHub Pages hosting, the course deadline, and Brightspace submission still require separate verification. Source handout: `/Users/parthsingh/Documents/Omi/AI-Brain-Vault/02 - University/Csci 310 - GUI/project1_personal_work_demo_2026F.pdf`.
+- **Is it hosted?** Yes: https://ps23102004.github.io/csci310-project1/ (checked in a real browser on 2026-09-23).
+- **Does the AI stylist work online?** Not on GitHub Pages. It needs the optional local backend and falls back to a heuristic when that isn't running.
+- **Which frameworks?** None. Pure JavaScript, which the handout allows.
+- **Is it accessible?** Not fully reviewed yet. A full WCAG review is the one item still outstanding.

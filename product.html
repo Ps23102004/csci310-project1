@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garment Dossier &bull; Skyline Religion</title>
+  <link rel="stylesheet" href="css/apple-tokens.css">
+  <link rel="stylesheet" href="css/skyline.css">
+  <style>
+    /* Dedicated Product Detail View Styles */
+    .product-page-layout {
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin: 30px auto 60px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+    }
+
+    .gallery-deck {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .primary-stage-viewport {
+      width: 100%;
+      height: 520px;
+      border-radius: 28px;
+      background: var(--bg-glass-heavy);
+      backdrop-filter: var(--blur-glass);
+      border: 1px solid var(--border-glass-highlight);
+      box-shadow: var(--shadow-glass);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: crosshair;
+    }
+
+    .stage-svg-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .angle-selector-ribbon {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .angle-btn {
+      padding: 10px 18px;
+      background: var(--bg-glass-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 9999px;
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition-fast);
+    }
+
+    .angle-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-glass-highlight);
+    }
+
+    .angle-btn.active {
+      background: var(--text-primary);
+      color: var(--bg-base);
+      border-color: var(--text-primary);
+    }
+
+    /* 360 Turntable Ribbon */
+    .turntable-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* Product Specs Column */
+    .dossier-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .dossier-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .dossier-breadcrumb a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .dossier-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text-primary);
+    }
+
+    .dossier-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .dossier-price {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+
+    .dossier-installment {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* Interactive GSM Gauge Meter */
+    .gsm-meter-box {
+      padding: 16px 20px;
+      background: var(--bg-glass-input);
+      border: 1px solid var(--border-glass);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .gsm-gauge-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .gsm-gauge-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0071E3 0%, var(--accent-gold) 100%);
+      border-radius: 9999px;
+      transition: width 1s ease;
+    }
+
+    /* Size Recommender Calculator */
+    .size-calc-card {
+      padding: 18px 20px;
+      background: var(--bg-glass-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .calc-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .calc-input {
+      flex: 1;
+      padding: 8px 12px;
+      background: var(--bg-glass-input);
+      border: 1px solid var(--border-glass);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 12px;
+      outline: none;
+    }
+
+    .calc-btn {
+      padding: 8px 16px;
+      background: var(--text-primary);
+      color: var(--bg-base);
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 900px) {
+      .product-page-layout {
+        grid-template-columns: 1fr;
+      }
+      .gallery-deck {
+        position: static;
+      }
+      .primary-stage-viewport {
+        height: 380px;
+      }
+    }
+  </style>
+</head>
+<body class="skyline-body">
+
+  <canvas id="refraction-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Dynamic Island Header -->
+  <header class="skyline-header">
+    <a href="skyline-religion.html" class="skyline-brand-wrap">
+      <img src="assets/logo.png" alt="Skyline Religion Crest" class="skyline-logo-emblem">
+      <div class="skyline-brand-text">
+        <span class="skyline-brand-name">Skyline Religion</span>
+        <span class="skyline-brand-sub">Layback Luxury</span>
+      </div>
+    </a>
+
+    <nav class="skyline-nav-links" aria-label="Main Navigation">
+      <li class="skyline-nav-item"><a href="skyline-religion.html">All Collection</a></li>
+      <li class="skyline-nav-item"><a href="sweatshirts.html">Sweatshirts</a></li>
+      <li class="skyline-nav-item"><a href="gym.html">Gym &amp; Athletics</a></li>
+      <li class="skyline-nav-item"><a href="streetwear.html">Streetwear</a></li>
+      <li class="skyline-nav-item"><a href="loungewear.html">Loungewear</a></li>
+      <li class="skyline-nav-item"><a href="about.html">Heritage</a></li>
+      <li class="skyline-nav-item"><a href="care.html">Care &amp; Fit</a></li>
+    </nav>
+
+    <div class="skyline-nav-actions">
+      <button class="theme-toggle-btn" id="skyline-theme-toggle" aria-label="Switch Theme">
+        <span>Theme</span>
+      </button>
+
+      <button class="icon-btn" id="cart-trigger-btn" aria-label="Open Shopping Bag">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge-count" id="cart-badge-count" style="display: none;">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="product-page-layout">
+      <!-- Left: High-Resolution Gallery & 360 Turntable View -->
+      <div class="gallery-deck">
+        <div class="primary-stage-viewport" id="primary-stage">
+          <div class="stage-svg-container" id="stage-svg-box">
+            <!-- Dynamic SVG fashion plate injected by JS -->
+          </div>
+        </div>
+
+        <div class="angle-selector-ribbon" id="angle-selector-ribbon">
+          <button class="angle-btn active" data-angle="front">
+            <span>Elevation 0°</span>
+          </button>
+        </div>
+
+        <div class="turntable-indicator">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+          </svg>
+          <span>Drag Or Click Angles for 360 Rotation</span>
+        </div>
+      </div>
+
+      <!-- Right: Technical Dossier & Sizing Architecture -->
+      <div class="dossier-column">
+        <div class="dossier-breadcrumb">
+          <a href="skyline-religion.html">Flagship</a>
+          <span>&rsaquo;</span>
+          <a href="#" id="crumb-category">Collection</a>
+          <span>&rsaquo;</span>
+          <span id="crumb-title" style="color: var(--text-primary); font-weight: 600;">Product</span>
+        </div>
+
+        <div>
+          <span class="product-badge-tag" id="dossier-badge">Signature Drop</span>
+          <h1 class="dossier-title" id="dossier-title" style="margin-top: 8px;">Garment Title</h1>
+          <div class="dossier-price-row" style="margin-top: 10px;">
+            <span class="dossier-price" id="dossier-price">$0.00</span>
+            <span class="dossier-installment">Demo catalog only · No payments are collected</span>
+          </div>
+        </div>
+
+        <p id="dossier-description" style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">
+          Detailed garment description...
+        </p>
+
+        <!-- Fabric Density & Drape Metric Gauge -->
+        <div class="gsm-meter-box">
+          <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700;">
+            <span style="color: var(--text-tertiary); text-transform: uppercase;">Density Rating</span>
+            <span id="dossier-gsm" style="color: var(--accent-gold);">500 GSM</span>
+          </div>
+          <div class="gsm-gauge-track">
+            <div class="gsm-gauge-fill" id="gsm-meter-fill" style="width: 85%;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-tertiary);">
+            <span>240 GSM (Lightweight)</span>
+            <span>520 GSM (Maximal Monolith)</span>
+          </div>
+        </div>
+
+        <!-- Technical Specification Grid -->
+        <div class="fitting-specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">Silhouette</span>
+            <span class="spec-val" id="dossier-fit">Boxy Drop-Shoulder</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Milling Origin</span>
+            <span class="spec-val" id="dossier-origin">Barcelos, Portugal</span>
+          </div>
+          <div class="spec-item" style="grid-column: 1 / -1;">
+            <span class="spec-label">Material Composition</span>
+            <span class="spec-val" id="dossier-fabric">100% Organic Heavyweight French Terry</span>
+          </div>
+        </div>
+
+        <!-- Sizing Selector -->
+        <div class="size-selection-block">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 13px; font-weight: 700;">Select Sizing</span>
+            <span id="dossier-model" style="font-size: 11px; color: var(--text-tertiary);">Model is 6'2" wearing Size L</span>
+          </div>
+          <div class="size-pills-row" id="dossier-sizes">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Virtual Size Recommender Calculator -->
+        <div class="size-calc-card">
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em;">
+            📐 Virtual Sizing Calculator
+          </span>
+          <div class="calc-row">
+            <input type="text" class="calc-input" id="calc-height" placeholder="Height (e.g. 6'1 or 185cm)">
+            <input type="text" class="calc-input" id="calc-weight" placeholder="Weight (e.g. 180 lbs or 82kg)">
+            <button class="calc-btn" id="calc-btn">Calculate</button>
+          </div>
+          <p id="calc-result" style="font-size: 12px; color: var(--accent-emerald); display: none;"></p>
+        </div>
+
+        <!-- Construction Highlights -->
+        <div>
+          <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); letter-spacing: 0.06em;">
+            Bespoke Construction Details
+          </span>
+          <ul id="dossier-features" style="font-size: 13px; color: var(--text-secondary); padding-left: 18px; margin-top: 8px; line-height: 1.8;">
+          </ul>
+        </div>
+
+        <!-- Add to Bag CTA -->
+        <button class="btn-primary" id="dossier-add-bag-btn" style="width: 100%; justify-content: center; padding: 18px; font-size: 15px;">
+          <span>Add to demo bag</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Enriched Brand Footer with Customer Care -->
+  <footer class="enriched-brand-footer">
+    <div class="footer-inner">
+      <div class="footer-manifesto-row">
+        <div>
+          <div class="footer-brand-title">
+            <img src="assets/logo.png" alt="Logo" style="width: 28px; height: 28px; border-radius: 6px;">
+            <span style="font-family: var(--font-display); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">Skyline Religion</span>
+          </div>
+          <p class="footer-manifesto-text">
+            Bespoke luxury streetwear built to endure. Every garment is cut from limited raw bolts in Portugal and Okayama, pre-shrunk and double-enzyme washed for structural permanence.
+          </p>
+        </div>
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--accent-gold);">Private Client Stewardship</h4>
+          <p class="footer-manifesto-text">
+            All garments include complimentary lifetime button, rivet, and seam servicing. Wash cold inside out and air-dry flat to maintain original textile density.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div class="footer-links-row">
+          <a href="skyline-religion.html">Flagship</a>
+          <a href="sweatshirts.html">Sweatshirts</a>
+          <a href="gym.html">Gym Athletics</a>
+          <a href="streetwear.html">Streetwear</a>
+          <a href="loungewear.html">Loungewear</a>
+          <a href="about.html">Heritage</a>
+          <a href="care.html">Customer Care</a>
+          <a href="projects.html">CSCI 310 Hub</a>
+        </div>
+        <span>&copy; 2026 Skyline Religion. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Liquid Glass Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop" role="dialog" aria-modal="true" aria-label="Demo shopping bag" aria-hidden="true" inert>
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">Your Wardrobe Bag</h3>
+        <button class="modal-close-btn" id="cart-close-btn" aria-label="Close bag">&times;</button>
+      </div>
+      <div class="cart-items-scroll" id="cart-items-container"></div>
+      <div class="cart-footer">
+        <div class="promo-row">
+          <input type="text" class="promo-input" id="cart-promo-input" placeholder="Privilege Code (SKYLINE10 or VIP20)">
+          <button class="promo-btn" id="apply-promo-btn">Apply</button>
+        </div>
+        <p id="promo-status-msg" style="font-size: 11px; display: none;"></p>
+        <div class="cart-summary-line"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+        <div class="cart-summary-line" id="cart-discount-row" style="display: none; color: var(--accent-emerald);"><span>Order Discount</span><span id="cart-discount-val">-$0.00</span></div>
+        <div class="cart-summary-line"><span>Express Courier</span><span>$0.00</span></div>
+        <div class="cart-summary-line total"><span>Total</span><span id="cart-total" style="color: var(--accent-gold);">$0.00</span></div>
+        <button class="btn-apple-pay" id="apple-pay-checkout-btn"><span>Preview demo checkout</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="checkout-modal-backdrop" role="dialog" aria-modal="true" aria-label="Demo checkout preview" aria-hidden="true" inert><div class="checkout-modal-sheet" id="checkout-modal-content"></div></div>
+
+  <!-- Scripts -->
+  <script src="js/refraction.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/product-art.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/stylist.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Parse product ID from query parameter e.g. ?id=sr-01
+      const params = new URLSearchParams(window.location.search);
+      const targetId = params.get('id') || 'sr-01';
+
+      const product = SKYLINE_PRODUCTS.find(p => p.id === targetId || p.slug === targetId) || SKYLINE_PRODUCTS[0];
+      let currentAngle = 'front';
+      let selectedSize = product.sizes.find(option => option.stock > 0)?.size || null;
+
+      // Update Breadcrumbs & Titles
+      document.getElementById('crumb-category').textContent = product.categoryLabel;
+      document.getElementById('crumb-category').href = ({ essentials: 'sweatshirts.html', tailoring: 'streetwear.html', movement: 'gym.html', outerwear: 'streetwear.html', bottoms: 'loungewear.html' }[product.category] || 'skyline-religion.html#catalog');
+      document.getElementById('crumb-title').textContent = product.title;
+      document.getElementById('dossier-title').textContent = product.title;
+      document.getElementById('dossier-price').textContent = `$${product.price}`;
+      document.getElementById('dossier-badge').textContent = product.badge || 'Signature';
+      document.getElementById('dossier-description').textContent = product.description;
+      document.getElementById('dossier-gsm').textContent = product.gsm;
+      document.getElementById('dossier-fabric').textContent = product.fabric;
+      document.getElementById('dossier-fit').textContent = product.fit;
+      document.getElementById('dossier-model').textContent = product.modelInfo;
+      document.title = `${product.title} • Skyline Religion`;
+
+      // Set GSM meter fill percentage
+      const gsmNum = parseInt(product.gsm) || 380;
+      const pct = Math.min(100, Math.max(30, ((gsmNum - 200) / 320) * 100));
+      document.getElementById('gsm-meter-fill').style.width = `${pct}%`;
+
+      // Render Stage SVG Art
+      const stage = document.getElementById('stage-svg-box');
+      function renderStage() {
+        stage.innerHTML = window.getProductArtwork(product.id, currentAngle);
+      }
+      renderStage();
+
+      // Dynamic Angle Ribbon based on declared image assets
+      const angleRibbon = document.getElementById('angle-selector-ribbon');
+      if (angleRibbon && product.images) {
+        const availableAngles = Object.keys(product.images);
+        const angleLabels = {
+          front: 'Elevation 0°',
+          back: 'Rear 180°',
+          detail: 'Macro Weave',
+          model: 'Editorial Fit'
+        };
+        angleRibbon.innerHTML = availableAngles.map((ang, idx) => `
+          <button class="angle-btn ${idx === 0 ? 'active' : ''}" data-angle="${ang}">
+            <span>${angleLabels[ang] || (ang.charAt(0).toUpperCase() + ang.slice(1))}</span>
+          </button>
+        `).join('');
+
+        currentAngle = availableAngles[0] || 'front';
+        renderStage();
+
+        angleRibbon.querySelectorAll('.angle-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            angleRibbon.querySelectorAll('.angle-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentAngle = btn.getAttribute('data-angle');
+            renderStage();
+          });
+        });
+      }
+
+      // Populate Sizes
+      const sizeContainer = document.getElementById('dossier-sizes');
+      sizeContainer.innerHTML = product.sizes.map(s => `
+        <button class="size-choice-btn ${s.size === selectedSize ? 'selected' : ''}"
+                data-size="${s.size}"
+                ${s.stock === 0 ? 'disabled style="opacity: 0.35; text-decoration: line-through;"' : ''}>
+          ${s.size} (${s.stock} left)
+        </button>
+      `).join('');
+
+      sizeContainer.querySelectorAll('.size-choice-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          sizeContainer.querySelectorAll('.size-choice-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          selectedSize = btn.getAttribute('data-size');
+        });
+      });
+
+      // Features
+      document.getElementById('dossier-features').innerHTML = product.features.map(f => `<li>${f}</li>`).join('');
+
+      // Add to bag
+      document.getElementById('dossier-add-bag-btn').addEventListener('click', () => {
+        if (window.cartManager) {
+          if (selectedSize && window.cartManager.addItem(product, selectedSize)) {
+            window.cartManager.openDrawer();
+            MotionSystem.triggerHapticFeedback(document.getElementById('dossier-add-bag-btn'));
+          }
+        }
+      });
+
+      // Sizing Calculator
+      document.getElementById('calc-btn').addEventListener('click', () => {
+        const height = document.getElementById('calc-height').value;
+        const weight = document.getElementById('calc-weight').value;
+        const resEl = document.getElementById('calc-result');
+        if (height || weight) {
+          resEl.textContent = 'Sizing preview only. Compare your measurements with the size guide before choosing a size.';
+          resEl.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Care &amp; Sizing &bull; Skyline Religion</title>
+  <link rel="stylesheet" href="css/apple-tokens.css">
+  <link rel="stylesheet" href="css/skyline.css">
+  <style>
+    .care-page-container {
+      position: relative;
+      z-index: 10;
+      max-width: 1000px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .care-hero-block {
+      text-align: center;
+      padding: 50px 32px;
+      background: var(--bg-glass-card);
+      backdrop-filter: var(--blur-glass);
+      border: 1px solid var(--border-glass-highlight);
+      border-radius: 28px;
+      box-shadow: var(--shadow-glass);
+    }
+
+    .care-tabs-ribbon {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .care-tab-btn {
+      padding: 10px 20px;
+      background: var(--bg-glass-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 9999px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .care-tab-btn.active {
+      background: var(--text-primary);
+      color: var(--bg-base);
+      border-color: var(--text-primary);
+    }
+
+    /* Tab Panels */
+    .care-panel {
+      display: none;
+      background: var(--bg-glass-card);
+      backdrop-filter: var(--blur-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .care-panel.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sizing Table */
+    .sizing-table-wrap {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    .sizing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .sizing-table th, .sizing-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .sizing-table th {
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    .sizing-table tr:hover td {
+      background: var(--bg-glass-input);
+    }
+
+    /* Live Concierge Form */
+    .concierge-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      padding: 12px 16px;
+      background: var(--bg-glass-input);
+      border: 1px solid var(--border-glass);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-size: 13px;
+      outline: none;
+      transition: border-color var(--transition-fast);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-gold);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-ticket-btn {
+      padding: 14px 28px;
+      background: var(--accent-gold);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+    }
+
+    .submit-ticket-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .ticket-confirmation-card {
+      padding: 24px;
+      background: var(--bg-glass-input);
+      border: 1px solid var(--accent-emerald);
+      border-radius: 16px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body class="skyline-body">
+
+  <canvas id="refraction-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Dynamic Island Header -->
+  <header class="skyline-header">
+    <a href="skyline-religion.html" class="skyline-brand-wrap">
+      <img src="assets/logo.png" alt="Skyline Religion Crest" class="skyline-logo-emblem">
+      <div class="skyline-brand-text">
+        <span class="skyline-brand-name">Skyline Religion</span>
+        <span class="skyline-brand-sub">Layback Luxury</span>
+      </div>
+    </a>
+
+    <nav class="skyline-nav-links" aria-label="Main Navigation">
+      <li class="skyline-nav-item"><a href="skyline-religion.html">All Collection</a></li>
+      <li class="skyline-nav-item"><a href="sweatshirts.html">Sweatshirts</a></li>
+      <li class="skyline-nav-item"><a href="gym.html">Gym &amp; Athletics</a></li>
+      <li class="skyline-nav-item"><a href="streetwear.html">Streetwear</a></li>
+      <li class="skyline-nav-item"><a href="loungewear.html">Loungewear</a></li>
+      <li class="skyline-nav-item"><a href="about.html">Heritage</a></li>
+      <li class="skyline-nav-item"><a href="care.html" class="active">Care &amp; Fit</a></li>
+    </nav>
+
+    <div class="skyline-nav-actions">
+      <button class="theme-toggle-btn" id="skyline-theme-toggle" aria-label="Switch Theme">
+        <span>Theme</span>
+      </button>
+
+      <button class="icon-btn" id="cart-trigger-btn" aria-label="Open Shopping Bag">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge-count" id="cart-badge-count" style="display: none;">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="care-page-container">
+    <section class="care-hero-block">
+      <span class="hero-eyebrow">
+        <span>🛡️</span>
+        <span>Private Client Services &bull; 24/7 Concierge</span>
+      </span>
+      <h1 class="hero-heading" style="font-size: clamp(28px, 4vw, 44px);">Customer Care &amp; Garment Stewardship</h1>
+      <p class="hero-subtext" style="max-width: 650px; margin: 0 auto 24px;">
+        Comprehensive dimensional sizing matrices, raw selvedge denim washing protocols, and our live private client concierge desk.
+      </p>
+
+      <!-- Navigation Tabs -->
+      <div class="care-tabs-ribbon">
+        <button class="care-tab-btn active" data-tab="sizing">📐 Sizing Matrix</button>
+        <button class="care-tab-btn" data-tab="wash">🧼 Wash Protocols</button>
+        <button class="care-tab-btn" data-tab="shipping">✈️ Courier &amp; Vault Returns</button>
+        <button class="care-tab-btn" data-tab="concierge">💬 Private Concierge Desk</button>
+      </div>
+    </section>
+
+    <!-- Tab 1: Sizing Matrix -->
+    <section class="care-panel active" id="tab-sizing">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+        <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 800;">Hoodies &amp; Sweatshirts Dimensional Tolerance</h3>
+        <span style="font-size: 12px; color: var(--accent-gold); font-weight: 700;">Units: Inches (Pre-Shrunk)</span>
+      </div>
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+        All Skyline tops are cut with an intentional boxy drop-shoulder. Chest measurements indicate total circumference.
+      </p>
+
+      <div class="sizing-table-wrap">
+        <table class="sizing-table">
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Chest Circumference</th>
+              <th>Body Length</th>
+              <th>Shoulder Drop</th>
+              <th>Sleeve Length</th>
+              <th>Recommended Frame</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>S</strong></td>
+              <td>46.0"</td>
+              <td>27.0"</td>
+              <td>23.0"</td>
+              <td>34.0"</td>
+              <td>5'7" – 5'9" (135–160 lbs)</td>
+            </tr>
+            <tr>
+              <td><strong>M</strong></td>
+              <td>48.5"</td>
+              <td>28.0"</td>
+              <td>24.0"</td>
+              <td>35.0"</td>
+              <td>5'9" – 6'0" (160–180 lbs)</td>
+            </tr>
+            <tr>
+              <td><strong>L (Signature)</strong></td>
+              <td>51.0"</td>
+              <td>29.0"</td>
+              <td>25.0"</td>
+              <td>36.0"</td>
+              <td>6'0" – 6'3" (175–205 lbs)</td>
+            </tr>
+            <tr>
+              <td><strong>XL</strong></td>
+              <td>54.0"</td>
+              <td>30.0"</td>
+              <td>26.0"</td>
+              <td>37.0"</td>
+              <td>6'2" – 6'5" (200–235 lbs)</td>
+            </tr>
+            <tr>
+              <td><strong>XXL</strong></td>
+              <td>57.0"</td>
+              <td>31.0"</td>
+              <td>27.0"</td>
+              <td>38.0"</td>
+              <td>6'3"+ (230 lbs+)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Tab 2: Wash Protocols -->
+    <section class="care-panel" id="tab-wash">
+      <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: 12px;">Garment Fiber Stewardship</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 18px;">
+        <div class="footer-acc-card">
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--accent-gold); margin-bottom: 6px;">500 GSM French Terry</h4>
+          <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+            Turn inside out before washing. Machine wash cold (max 30°C / 85°F) with gentle detergent. Always lay flat on a drying rack. Never tumble dry to preserve natural cotton loop integrity.
+          </p>
+        </div>
+        <div class="footer-acc-card">
+          <h4 style="font-size: 14px; font-weight: 700; color: var(--accent-gold); margin-bottom: 6px;">14.5oz Okayama Selvedge Denim</h4>
+          <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+            Wear raw for at least 4-6 months before washing. When required, submerge in a cold tub bath with wool wash for 45 minutes. Hang dry outdoors in shade away from direct UV sunlight.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Courier & Returns -->
+    <section class="care-panel" id="tab-shipping">
+      <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: 12px;">White-Glove Courier &amp; Vault Returns</h3>
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+        All orders ship via insured, carbon-neutral express courier. North American deliveries arrive within 2 business days; international deliveries within 3 business days with all customs tariffs prepaid.
+      </p>
+      <div style="margin-top: 20px; padding: 18px; background: var(--bg-glass-input); border-radius: 12px; border: 1px solid var(--border-glass);">
+        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">30-Day Complimentary Vault Exchange</h4>
+        <p style="font-size: 12px; color: var(--text-secondary);">
+          Every order includes a pre-printed, fully insured return courier label. Simply place garments in their original magnetic box and schedule a courier pickup.
+        </p>
+      </div>
+    </section>
+
+    <!-- Tab 4: Live Bespoke Concierge Form -->
+    <section class="care-panel" id="tab-concierge">
+      <div style="margin-bottom: 24px;">
+        <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 800;">Private Client Concierge Desk</h3>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
+          Submit custom tailoring questions, order modifications, or VIP appointment requests directly to our vault team.
+        </p>
+      </div>
+
+      <div id="ticket-success-box" class="ticket-confirmation-card">
+        <div style="font-size: 32px; margin-bottom: 8px;">✓</div>
+        <h4 style="font-size: 18px; font-weight: 800; color: var(--text-primary);" id="confirmed-ticket-id">Ticket INQ-94821 Logged</h4>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-top: 6px;">
+          Your concierge request has been recorded in the private vault queue. A master tailor or concierge specialist will reply within 4 hours.
+        </p>
+      </div>
+
+      <form id="concierge-inquiry-form" class="concierge-form-grid">
+        <div class="form-group">
+          <label class="form-label">Patron Name *</label>
+          <input type="text" id="inq-name" class="form-control" placeholder="Parth Singh" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address *</label>
+          <input type="email" id="inq-email" class="form-control" placeholder="patron@skyline.vip" required>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Inquiry Subject *</label>
+          <select id="inq-subject" class="form-control">
+            <option value="sizing">Bespoke Sizing &amp; Tailoring Consultation</option>
+            <option value="order">Order Tracking / VIP Express Handling</option>
+            <option value="exchange">Vault Exchange Request</option>
+            <option value="press">Private Showroom Appointment / Press</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Message Details *</label>
+          <textarea id="inq-message" class="form-control" placeholder="Describe your dimensional requirements, order reference, or custom request..." required></textarea>
+        </div>
+        <div class="form-group full" style="margin-top: 10px;">
+          <button type="submit" class="submit-ticket-btn" id="submit-inquiry-btn">
+            <span>Submit Concierge Request</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Enriched Brand Footer -->
+  <footer class="enriched-brand-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom-row">
+        <div class="footer-links-row">
+          <a href="skyline-religion.html">Flagship</a>
+          <a href="sweatshirts.html">Sweatshirts</a>
+          <a href="gym.html">Gym Athletics</a>
+          <a href="streetwear.html">Streetwear</a>
+          <a href="loungewear.html">Loungewear</a>
+          <a href="about.html">Heritage</a>
+          <a href="care.html">Customer Care</a>
+          <a href="projects.html">CSCI 310 Hub</a>
+        </div>
+        <span>&copy; 2026 Skyline Religion. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Liquid Glass Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop" role="dialog" aria-modal="true">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">Your Wardrobe Bag</h3>
+        <button class="modal-close-btn" id="cart-close-btn">&times;</button>
+      </div>
+      <div class="cart-items-scroll" id="cart-items-container"></div>
+      <div class="cart-footer">
+        <div class="promo-row">
+          <input type="text" class="promo-input" id="cart-promo-input" placeholder="Privilege Code (SKYLINE10 or VIP20)">
+          <button class="promo-btn" id="apply-promo-btn">Apply</button>
+        </div>
+        <p id="promo-status-msg" style="font-size: 11px; display: none;"></p>
+        <div class="cart-summary-line"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+        <div class="cart-summary-line" id="cart-discount-row" style="display: none; color: var(--accent-emerald);"><span>Order Discount</span><span id="cart-discount-val">-$0.00</span></div>
+        <div class="cart-summary-line"><span>Express Courier</span><span>$0.00</span></div>
+        <div class="cart-summary-line total"><span>Total</span><span id="cart-total" style="color: var(--accent-gold);">$0.00</span></div>
+        <button class="btn-apple-pay" id="apple-pay-checkout-btn"><span>Pay with Apple Pay</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="checkout-modal-backdrop"><div class="checkout-modal-sheet" id="checkout-modal-content"></div></div>
+
+  <!-- Scripts -->
+  <script src="js/refraction.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/product-art.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/stylist.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tab navigation
+      const tabs = document.querySelectorAll('.care-tab-btn');
+      const panels = document.querySelectorAll('.care-panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+
+          tab.classList.add('active');
+          const target = tab.getAttribute('data-tab');
+          document.getElementById(`tab-${target}`)?.classList.add('active');
+        });
+      });
+
+      // Concierge Form Submission
+      const form = document.getElementById('concierge-inquiry-form');
+      const successCard = document.getElementById('ticket-success-box');
+      const ticketIdText = document.getElementById('confirmed-ticket-id');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const payload = {
+            name: document.getElementById('inq-name').value,
+            email: document.getElementById('inq-email').value,
+            subject: document.getElementById('inq-subject').value,
+            message: document.getElementById('inq-message').value
+          };
+
+          try {
+            const res = await fetch('http://localhost:3010/api/inquiry', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+              const data = await res.json();
+              ticketIdText.textContent = `Ticket ${data.ticketId || 'INQ-' + Math.floor(10000 + Math.random() * 90000)} Logged`;
+            } else {
+              ticketIdText.textContent = `Ticket INQ-${Math.floor(10000 + Math.random() * 90000)} Logged`;
+            }
+          } catch (err) {
+            ticketIdText.textContent = `Ticket INQ-${Math.floor(10000 + Math.random() * 90000)} Logged (Offline Vault)`;
+          }
+
+          form.style.display = 'none';
+          successCard.style.display = 'block';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

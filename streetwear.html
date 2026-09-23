@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streetwear &amp; Denim &bull; Skyline Religion</title>
+  <link rel="stylesheet" href="css/apple-tokens.css">
+  <link rel="stylesheet" href="css/skyline.css">
+</head>
+<body class="skyline-body">
+
+  <!-- Effect 1: HTML5 Canvas Light Refraction Shader -->
+  <canvas id="refraction-canvas" aria-hidden="true"></canvas>
+
+  <!-- Atmospheric Background Art: Cozy & Bright Golden-Hour Metropolitan Skyline with Selvedge Redline -->
+  <div class="art-streetwear-bg" aria-hidden="true">
+    <div class="selvedge-tape"></div>
+  </div>
+
+  <!-- Floating Dynamic Island Header -->
+  <header class="skyline-header">
+    <a href="skyline-religion.html" class="skyline-brand-wrap">
+      <img src="assets/logo.png" alt="Skyline Religion Crest" class="skyline-logo-emblem">
+      <div class="skyline-brand-text">
+        <span class="skyline-brand-name">Skyline Religion</span>
+        <span class="skyline-brand-sub">Layback Luxury</span>
+      </div>
+    </a>
+
+    <nav class="skyline-nav-links" aria-label="Main Navigation">
+      <li class="skyline-nav-item"><a href="skyline-religion.html">All Collection</a></li>
+      <li class="skyline-nav-item"><a href="sweatshirts.html">Sweatshirts</a></li>
+      <li class="skyline-nav-item"><a href="gym.html">Gym &amp; Athletics</a></li>
+      <li class="skyline-nav-item"><a href="streetwear.html" class="active">Streetwear</a></li>
+      <li class="skyline-nav-item"><a href="loungewear.html">Loungewear</a></li>
+      <li class="skyline-nav-item"><a href="about.html">Heritage</a></li>
+      <li class="skyline-nav-item"><a href="care.html">Care &amp; Fit</a></li>
+    </nav>
+
+    <div class="skyline-nav-actions">
+      <button class="theme-toggle-btn" id="skyline-theme-toggle" aria-label="Switch Theme">
+        <span>Theme</span>
+      </button>
+
+      <button class="icon-btn" id="cart-trigger-btn" aria-label="Open Shopping Bag">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge-count" id="cart-badge-count" style="display: none;">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Category Hero Header -->
+    <section class="category-hero-header">
+      <span class="category-hero-eyebrow">
+        <span>🌆</span>
+        <span>Okayama, Japan Selvedge &bull; 14.5oz Raw Kuroki Mills</span>
+      </span>
+      <h1 class="category-hero-title">Metropolitan Streetwear &amp; Denim</h1>
+      <p class="category-hero-sub">
+        A focused streetwear edit: the Raw Noir denim trucker jacket, a boxy tee, and a structured studio cap. Browse these available catalog pieces below.
+      </p>
+
+      <div class="tech-spec-callout"><div class="tech-spec-pill"><span>Outer layer</span><span>Raw Noir Denim Trucker</span></div><div class="tech-spec-pill"><span>Foundation</span><span>Boxy Tee &amp; Structured Studio Cap</span></div></div>
+    </section>
+
+    <!-- Product Grid for Streetwear -->
+    <section class="catalog-section">
+      <div class="products-catalog-grid" id="products-grid">
+        <!-- Rendered by js/catalog.js filtered to category="streetwear" -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Enriched Brand Footer with Customer Care -->
+  <footer class="enriched-brand-footer">
+    <div class="footer-inner">
+      <div class="footer-manifesto-row">
+        <div>
+          <div class="footer-brand-title">
+            <img src="assets/logo.png" alt="Logo" style="width: 28px; height: 28px; border-radius: 6px;">
+            <span style="font-family: var(--font-display); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">Skyline Religion</span>
+          </div>
+          <p class="footer-manifesto-text">
+            Our streetwear philosophy rejects disposable trends in favor of architectural volume. We source vintage shuttle loom selvedge denim that matures with unique wear patinas, celebrating the wearer's personal journey through the city.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--accent-gold);">The Okayama Legacy (Kuroki Mills)</h4>
+          <p class="footer-manifesto-text">
+            Operating in the denim capital of Kojima, Kurashiki, Kuroki Mills uses pure subterranean spring water and rope-dyeing vats to achieve deep indigo saturation. Woven on narrow 29" shuttle looms for unrivaled fabric density.
+          </p>
+        </div>
+      </div>
+
+      <!-- Customer Care Accordions -->
+      <div class="footer-accordions-deck">
+        <div class="footer-acc-card">
+          <div class="footer-acc-title"><span>👖</span> Selvedge Break Sizing</div>
+          <p class="footer-acc-body">Our Carpenter Jeans feature an exaggerated 32" inseam designed to puddle over high-top sneakers or boots with structured stacking.</p>
+        </div>
+        <div class="footer-acc-card">
+          <div class="footer-acc-title"><span>🌊</span> Raw Denim Soak Guide</div>
+          <p class="footer-acc-body">Wear raw for 6 months before first cold tub soak. Hang dry in shade. Avoid machine washing to preserve sharp whiskers and honeycombs.</p>
+        </div>
+        <div class="footer-acc-card">
+          <div class="footer-acc-title"><span>📦</span> Insured Global Shipping</div>
+          <p class="footer-acc-body">Complimentary carbon-neutral express courier on all apparel. All customs duties and import taxes are pre-paid by Skyline Religion.</p>
+        </div>
+        <div class="footer-acc-card">
+          <div class="footer-acc-title"><span>🪡</span> Lifetime Hardware Service</div>
+          <p class="footer-acc-body">Copper river rivets and shank buttons are guaranteed for life. Complimentary repair or replacement provided upon request.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div class="footer-links-row">
+          <a href="skyline-religion.html">Flagship</a>
+          <a href="sweatshirts.html">Sweatshirts</a>
+          <a href="gym.html">Gym Athletics</a>
+          <a href="streetwear.html">Streetwear</a>
+          <a href="loungewear.html">Loungewear</a>
+          <a href="about.html">Heritage</a>
+          <a href="care.html">Customer Care</a>
+          <a href="projects.html">CSCI 310 Hub</a>
+        </div>
+        <span>&copy; 2026 Skyline Religion. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Liquid Glass Cart Drawer -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop" role="dialog" aria-modal="true">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">Your Wardrobe Bag</h3>
+        <button class="modal-close-btn" id="cart-close-btn">&times;</button>
+      </div>
+      <div class="cart-items-scroll" id="cart-items-container"></div>
+      <div class="cart-footer">
+        <div class="promo-row">
+          <input type="text" class="promo-input" id="cart-promo-input" placeholder="Privilege Code (SKYLINE10 or VIP20)">
+          <button class="promo-btn" id="apply-promo-btn">Apply</button>
+        </div>
+        <p id="promo-status-msg" style="font-size: 11px; display: none;"></p>
+        <div class="cart-summary-line"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+        <div class="cart-summary-line" id="cart-discount-row" style="display: none; color: var(--accent-emerald);"><span>Order Discount</span><span id="cart-discount-val">-$0.00</span></div>
+        <div class="cart-summary-line"><span>Express Courier</span><span>$0.00</span></div>
+        <div class="cart-summary-line total"><span>Total</span><span id="cart-total" style="color: var(--accent-gold);">$0.00</span></div>
+        <button class="btn-apple-pay" id="apple-pay-checkout-btn"><span>Pay with Apple Pay</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="checkout-modal-backdrop"><div class="checkout-modal-sheet" id="checkout-modal-content"></div></div>
+
+  <!-- Scripts -->
+  <script src="js/refraction.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/product-art.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/stylist.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter catalog to streetwear on this page
+      if (window.catalogManager) {
+        window.catalogManager.activeCategory = 'streetwear';
+        window.catalogManager.render();
+      }
+    });
+  </script>
+</body>
+</html>

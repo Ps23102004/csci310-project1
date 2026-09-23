@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Project &bull; Parth Singh &bull; CSCI 310</title>
+  <link rel="stylesheet" href="css/apple-tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar with Apple Glass Theme Toggle -->
+  <header class="site-nav">
+    <a href="index.html" class="brand-badge">
+      <img src="assets/logo-red-transparent.png" alt="Skyline Religion logo" class="brand-logo-img">
+      <span>Parth Singh &bull; CSCI 310</span>
+    </a>
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark / Light Theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <span>Theme</span>
+      </button>
+      <a href="index.html" class="nav-link-btn">&larr; Home</a>
+    </div>
+  </header>
+
+  <!-- Personal Homepage & Biography Section -->
+  <main>
+    <!-- ==========================================================================
+         CSCI 310 REQUIRED PROJECT OVERVIEW GRID:
+         Desktop: 720px container, 40px outer margins, 2 rows x 3 columns,
+                  Block images 200px x 150px, 25px gap below header, 20px col gap, 25px row gap.
+         Mobile:  300px container, 3 rows x 2 columns, Block images 120px x 90px, 10px spacing.
+         ========================================================================== -->
+    <section class="projects-section-container" aria-label="My Project Course Grid">
+      <div class="my-project-header">
+        <h2>My Project</h2>
+        <span>Project 1 &bull; Personal Work Showcase</span>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Block 1: Javascript Demo (Required Active Demo Link) -->
+        <a href="skyline-religion.html" class="project-block featured-block" id="block-1-demo" title="Launch Skyline Religion Interactive Demo">
+          <div class="project-image-container">
+            <picture class="project-picture">
+              <source media="(max-width: 768px)" srcset="assets/products/sr-01-detail.jpg">
+              <img src="assets/products/sr-01-front.jpg" alt="Skyline Religion heavyweight hoodie, with a fabric detail view on mobile" class="project-image">
+            </picture>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Javascript Demo</h3>
+            <p class="project-description"><span class="desktop-copy">Skyline Religion Flagship: 500 GSM luxury streetwear with 5 client-side JavaScript effects.</span><span class="mobile-copy">Tap for the interactive fashion demo.</span></p>
+          </div>
+        </a>
+
+        <!-- Block 2: Reserved Project 2 -->
+        <div class="project-block" id="block-2">
+          <div class="project-image-container">
+            <div class="project-placeholder-visual">
+              <span style="font-size: 24px;">🎮</span>
+              <span>Project 2</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Project 2</h3>
+            <p class="project-description">Interactive 2D Canvas Game Engine (Reserved for Course Assignment 2).</p>
+          </div>
+        </div>
+
+        <!-- Block 3: Reserved Project 3 -->
+        <div class="project-block" id="block-3">
+          <div class="project-image-container">
+            <div class="project-placeholder-visual">
+              <span style="font-size: 24px;">⚡</span>
+              <span>Project 3</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Project 3</h3>
+            <p class="project-description">Advanced Event-Driven GUI Controls (Reserved for Course Assignment 3).</p>
+          </div>
+        </div>
+
+        <!-- Block 4: Reserved Project 4 -->
+        <div class="project-block" id="block-4">
+          <div class="project-image-container">
+            <div class="project-placeholder-visual">
+              <span style="font-size: 24px;">🔮</span>
+              <span>Project 4</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Project 4</h3>
+            <p class="project-description">WebGL Shader Pipelines &amp; Audio Visualizer (Reserved for Assignment 4).</p>
+          </div>
+        </div>
+
+        <!-- Block 5: Reserved Project 5 -->
+        <div class="project-block" id="block-5">
+          <div class="project-image-container">
+            <div class="project-placeholder-visual">
+              <span style="font-size: 24px;">🕹️</span>
+              <span>Project 5</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Project 5</h3>
+            <p class="project-description">Multiplayer State Synchronizer (Reserved for Course Assignment 5).</p>
+          </div>
+        </div>
+
+        <!-- Block 6: Reserved Project 6 -->
+        <div class="project-block" id="block-6">
+          <div class="project-image-container">
+            <div class="project-placeholder-visual">
+              <span style="font-size: 24px;">🚀</span>
+              <span>Project 6</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Project 6</h3>
+            <p class="project-description">Capstone Course Project &amp; Research Paper Demo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; font-size: 13px;">
+      <a href="skyline-religion.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 700;">Skyline Flagship</a>
+      <span>&bull;</span>
+      <a href="sweatshirts.html" style="color: inherit; text-decoration: none;">Sweatshirts (500 GSM)</a>
+      <span>&bull;</span>
+      <a href="gym.html" style="color: inherit; text-decoration: none;">Gym Athletics</a>
+      <span>&bull;</span>
+      <a href="streetwear.html" style="color: inherit; text-decoration: none;">Streetwear &amp; Denim</a>
+      <span>&bull;</span>
+      <a href="loungewear.html" style="color: inherit; text-decoration: none;">Loungewear</a>
+      <span>&bull;</span>
+      <a href="about.html" style="color: inherit; text-decoration: none;">Brand Heritage</a>
+      <span>&bull;</span>
+      <a href="care.html" style="color: inherit; text-decoration: none;">Customer Care</a>
+    </div>
+    <p>&copy; 2026 Parth Singh. CSCI 310: GUI &amp; Game Programming. All rights reserved.</p>
+    <p style="margin-top: 4px; font-size: 11px;">Designed for GitHub Pages deployment. Built with Semantic HTML5, CSS3, &amp; Vanilla ES6+ JavaScript.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+</body>
+</html>

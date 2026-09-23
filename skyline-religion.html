@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKYLINE RELIGION &bull; Layback Luxury Clothing</title>
+  <meta name="description" content="Skyline Religion: Architectural streetwear and deconstructed luxury tailoring crafted in New York City. Heavyweight essentials, tailored silhouettes, and permanent urban form.">
+  <link rel="icon" type="image/png" href="assets/logo-white-transparent.png">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('skyline_religion_theme');
+        var theme = saved === 'dark' || saved === 'light' ? saved : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="css/skyline.css">
+</head>
+<body class="skyline-body">
+
+  <!-- Effect 1: HTML5 Canvas Interactive Light Refraction & Specular Caustics -->
+  <canvas id="refraction-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Dynamic Island Header -->
+  <header class="skyline-header">
+    <a href="skyline-religion.html" class="skyline-brand-wrap" aria-label="Skyline Religion Home">
+      <img src="assets/logo-white-transparent.png" alt="Skyline Religion" class="skyline-logo-emblem">
+      <div class="skyline-brand-text">
+        <span class="skyline-brand-name">Skyline Religion</span>
+        <span class="skyline-brand-sub">Layback Luxury</span>
+      </div>
+    </a>
+
+    <!-- Semantic Navigation -->
+    <nav class="skyline-nav-links" aria-label="Main Navigation">
+      <ul style="display: flex; align-items: center; gap: 24px; list-style: none;">
+        <li class="skyline-nav-item"><a href="#catalog" class="active">Collection</a></li>
+        <li class="skyline-nav-item"><a href="#tailoring">Tailoring</a></li>
+        <li class="skyline-nav-item"><a href="#editorial">Campaign</a></li>
+        <li class="skyline-nav-item"><a href="#craft">Atelier Craft</a></li>
+        <li class="skyline-nav-item"><a href="about.html">Heritage</a></li>
+        <li class="skyline-nav-item"><a href="care.html">Care &amp; Sizing</a></li>
+      </ul>
+    </nav>
+
+    <div class="skyline-nav-actions">
+      <!-- Theme Switcher -->
+      <button class="theme-toggle-btn" id="skyline-theme-toggle" aria-label="Switch Appearance Theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <span>Theme</span>
+      </button>
+
+      <!-- Wishlist Counter -->
+      <button class="icon-btn" id="wishlist-trigger-btn" aria-label="View Saved Pieces" onclick="window.catalogManager.viewWishlist();" title="Saved Pieces">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span class="cart-badge-count" id="wishlist-badge-count" style="display: none; background: #EF4444; color: #FFF;">0</span>
+      </button>
+
+      <!-- Cart Drawer Trigger Button -->
+      <button class="icon-btn" id="cart-trigger-btn" aria-label="Open Shopping Bag">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge-count" id="cart-badge-count" style="display: none;">0</span>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-trigger" aria-label="Open Navigation Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" role="dialog" aria-modal="true" aria-label="Mobile Navigation" aria-hidden="true" inert>
+    <div class="mobile-nav-drawer">
+      <div class="mobile-nav-header">
+        <span style="font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">Skyline Religion</span>
+        <button class="modal-close-btn" id="mobile-nav-close" aria-label="Close navigation">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#catalog">Collection Grid</a></li>
+        <li><a href="#tailoring">Tailoring &amp; Suiting</a></li>
+        <li><a href="#editorial">Editorial Campaign</a></li>
+        <li><a href="#craft">Architectural Craft</a></li>
+        <li><a href="about.html">Heritage &amp; Atelier</a></li>
+        <li><a href="care.html">Customer Care &amp; Sizing</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <!-- 1. High-Fashion Editorial Hero Campaign -->
+    <section class="skyline-hero">
+      <div class="hero-specular-light" aria-hidden="true"></div>
+      <span class="hero-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        New York City &bull; Autumn / Winter 2026 Capsule
+      </span>
+
+      <h1 class="hero-heading">
+        <span class="reveal-line"><span class="reveal-word" style="--i:0">Architectural</span> <span class="reveal-word" style="--i:1">Form.</span></span><br>
+        <span class="gold-text gold-text-fade">Sacred Comfort.</span>
+      </h1>
+
+      <p class="hero-subtext">
+        Heavyweight essentials, tailored silhouettes and city-born layers designed around structure, comfort and movement.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#catalog" class="btn-primary">
+          <span>Explore Collection</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <button class="btn-secondary" onclick="window.catalogManager.openModal('sr-01')">
+          <span>Explore the Fit</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. Architectural Philosophy & Core Pillars -->
+    <section class="manifesto-callout-section">
+      <div class="manifesto-callout-grid">
+        <div class="manifesto-pillar-card" data-reveal>
+          <div class="pillar-num">Pillar 01</div>
+          <h3 class="pillar-title">Fiber Density</h3>
+          <p class="pillar-desc">Custom 500 GSM Portuguese loopback French terry and 280 GSM combed cotton jersey milled for permanent structural memory.</p>
+        </div>
+        <div class="manifesto-pillar-card" data-reveal>
+          <div class="pillar-num">Pillar 02</div>
+          <h3 class="pillar-title">Deconstructed Tailoring</h3>
+          <p class="pillar-desc">Relaxed Italian gabardine suits and wide-leg trousers built without stiff interlinings for natural metropolitan movement.</p>
+        </div>
+        <div class="manifesto-pillar-card" data-reveal>
+          <div class="pillar-num">Pillar 03</div>
+          <h3 class="pillar-title">Permanent Form</h3>
+          <p class="pillar-desc">Pre-shrunk, enzyme-washed textiles with double-needle lockstitching engineered to resist distortion over years of wear.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Editorial Couple Campaign Banner -->
+    <section class="editorial-banner-section" id="editorial">
+      <div class="editorial-banner-card" data-reveal>
+        <div class="editorial-banner-img-wrap">
+          <img src="assets/editorial/couple-walking-back.jpg" alt="Skyline Religion Couple in Manhattan" loading="lazy">
+        </div>
+        <div class="editorial-banner-content">
+          <span class="editorial-eyebrow">Autumn / Winter Editorial</span>
+          <h2 class="editorial-title">Same skyline.<br>Different stories.</h2>
+          <p class="editorial-desc">
+            From sunrise over the East River waterfront to nocturnal gatherings along Lower Manhattan rooftops. Skyline Religion creates garments for the unscripted hours between work, movement and night.
+          </p>
+          <div>
+            <a href="#catalog" class="btn-secondary" style="padding: 12px 24px;">
+              <span>View Capsule Pieces</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Interactive 4:5 Product Catalog Grid -->
+    <section class="filter-section" id="catalog">
+      <div class="filter-bar-container">
+        <!-- Dynamic Category Pills -->
+        <div class="category-pills">
+          <button class="filter-pill active" data-category="all" data-label="All Pieces" aria-pressed="true">All Pieces</button>
+          <button class="filter-pill" data-category="essentials" data-label="Essentials" aria-pressed="false">Essentials</button>
+          <button class="filter-pill" data-category="tailoring" data-label="Tailoring" aria-pressed="false">Tailoring</button>
+          <button class="filter-pill" data-category="movement" data-label="Movement" aria-pressed="false">Movement</button>
+          <button class="filter-pill" data-category="outerwear" data-label="Outerwear &amp; Acc" aria-pressed="false">Outerwear &amp; Acc</button>
+        </div>
+
+        <!-- Search & Sorting Controls -->
+        <div class="filter-controls-right">
+          <div class="search-input-wrap">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="catalog-search" placeholder="Search collection..." aria-label="Search garments">
+          </div>
+
+          <select class="sort-select" id="catalog-sort" aria-label="Sort products">
+            <option value="featured">Featured Sequence</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="density">Fabric Density (GSM)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Interactive Product Catalog Grid (4:5 Cards with Hover Image Flip) -->
+    <section class="catalog-section" aria-label="Garments Catalog">
+      <div class="products-catalog-grid" id="products-grid">
+        <!-- Dynamically populated by js/catalog.js with 4:5 dual-image cards -->
+      </div>
+    </section>
+
+    <!-- 5. Tailoring Campaign Spotlight -->
+    <section class="tailoring-spotlight-section" id="tailoring">
+      <div class="tailoring-grid">
+        <div class="tailoring-info" data-reveal>
+          <span class="editorial-eyebrow">The Soho Evening Capsule</span>
+          <h2 class="editorial-title">Street Rhythm.<br>Evening Structure.</h2>
+          <p class="editorial-desc">
+            Skyline Religion bridges Savile Row construction and metropolitan energy. Fluid double-pleated gabardine trousers, unpadded virgin wool blazers, and deconstructed evening suits engineered to move seamlessly from day to night.
+          </p>
+          <div>
+            <button class="btn-primary" onclick="window.catalogManager.filterCategory('tailoring')" style="padding: 14px 28px;">
+              <span>Explore Tailoring Collection</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+        <div class="tailoring-media" data-reveal>
+          <img src="assets/editorial/tailoring-couple-suits.jpg" alt="Skyline Religion Evening Suiting in Manhattan" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Architectural Craft & Materials Story -->
+    <section class="craft-materials-section" id="craft">
+      <div class="craft-grid">
+        <div class="craft-card" data-reveal>
+          <div class="craft-card-media">
+            <img src="assets/editorial/woven-label-macro.jpg" alt="Macro Damask Woven Label" loading="lazy">
+          </div>
+          <div class="craft-card-body">
+            <span class="editorial-eyebrow">Atelier Specification</span>
+            <h3 class="pillar-title">High-Density Damask Label</h3>
+            <p class="pillar-desc">
+              Each garment carries our signature interior damask woven tag inscribed with "MORE THAN CLOTHES / A HIGHER PERSPECTIVE." Blind-stitched to avoid skin abrasion.
+            </p>
+          </div>
+        </div>
+
+        <div class="craft-card" data-reveal>
+          <div class="craft-card-media">
+            <img src="assets/editorial/studio-rack-craft.jpg" alt="Skyline Religion Atelier Garment Rack" loading="lazy">
+          </div>
+          <div class="craft-card-body">
+            <span class="editorial-eyebrow">Material Integrity</span>
+            <h3 class="pillar-title">Barcelos &amp; Biella Ateliers</h3>
+            <p class="pillar-desc">
+              We collaborate exclusively with heritage mills in Barcelos, Portugal for 500 GSM loopback fleece and Biella, Italy for fluid virgin wool gabardine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. City Movement & Streetwear Showcase -->
+    <section class="movement-showcase-section" id="movement">
+      <div class="movement-split-grid">
+        <div class="movement-panel" data-reveal>
+          <img src="assets/editorial/female-streetwear-blazer.jpg" alt="Female Streetwear in NYC" loading="lazy">
+          <div class="movement-panel-overlay">
+            <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-gold); font-weight: 700;">Urban Movement</span>
+            <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 800; margin-top: 4px;">Oversized City Silhouette</h3>
+          </div>
+        </div>
+
+        <div class="movement-panel" data-reveal>
+          <img src="assets/editorial/male-streetwear-trousers.jpg" alt="Male Streetwear in NYC" loading="lazy">
+          <div class="movement-panel-overlay">
+            <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-gold); font-weight: 700;">Fluid Transit</span>
+            <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 800; margin-top: 4px;">Relaxed Tailored Drape</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. VIP Newsletter Release Section -->
+    <section class="skyline-newsletter-section" data-reveal>
+      <span class="editorial-eyebrow">Private Release Access</span>
+      <h2 style="font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--text-primary); margin-top: 8px;">From the skyline.</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); max-width: 480px; margin: 10px auto 0; line-height: 1.6;">
+        Explore a preview of the newsletter sign-up experience. This demo does not save or submit your email address.
+      </p>
+      <form class="newsletter-form-row" id="newsletter-form">
+        <input type="email" class="newsletter-input" id="newsletter-email" placeholder="Enter your email address" required aria-label="Email address for private releases">
+        <button type="submit" class="btn-primary" style="padding: 14px 28px;">
+          <span>Preview sign-up</span>
+        </button>
+      </form>
+      <p class="newsletter-success-msg" id="newsletter-success" role="status" hidden>Demo preview only. No email was submitted or saved.</p>
+    </section>
+  </main>
+
+  <!-- 9. "Explore the Fit" Product Quick View & Technical Modal -->
+  <div class="modal-backdrop" id="product-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true" inert>
+    <div class="product-modal-sheet">
+      <!-- Left: Visual & Real Photography Thumbnails -->
+      <div class="modal-gallery-pane">
+        <div id="modal-image-container" class="modal-image-frame">
+          <img id="modal-primary-img" src="assets/products/sr-01-front.jpg" alt="Garment Elevation" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px; transition: transform 0.4s ease;">
+        </div>
+        <!-- Real Image Thumbnails Strip -->
+        <div class="angle-thumbnails-strip" id="modal-angle-strip">
+          <!-- Populated dynamically by js/catalog.js with real miniature photos -->
+        </div>
+      </div>
+
+      <!-- Right: Technical Specifications, Dual Model Dimensions, & Sizing -->
+      <div class="modal-info-pane">
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">&times;</button>
+
+        <div>
+          <span class="product-badge-tag" id="modal-badge">Signature Drop</span>
+          <h2 class="modal-product-title" id="modal-title" style="margin-top: 8px;">Product Title</h2>
+          <span class="modal-product-price" id="modal-price">$0.00</span>
+        </div>
+
+        <p id="modal-description" style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+          Description...
+        </p>
+
+        <!-- Technical Fitting Grid -->
+        <div class="fitting-specs-grid">
+          <div class="spec-item">
+            <span class="spec-label">Fabric Density</span>
+            <span class="spec-val" id="modal-gsm">500 GSM</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Silhouette</span>
+            <span class="spec-val" id="modal-fit">Boxy Drop-Shoulder</span>
+          </div>
+          <div class="spec-item" style="grid-column: 1 / -1;">
+            <span class="spec-label">Material Composition</span>
+            <span class="spec-val" id="modal-fabric">100% Organic French Terry</span>
+          </div>
+        </div>
+
+        <!-- Sizing & Dual Model Fit Reference -->
+        <div class="size-selection-block">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 13px; font-weight: 700;">Select Sizing</span>
+          </div>
+          <div id="modal-model" style="font-size: 11px; color: var(--text-tertiary); margin: 4px 0 8px; line-height: 1.5;">
+            Model sizing specifications
+          </div>
+          <div class="size-pills-row" id="modal-sizes">
+            <!-- Sizing buttons populated by JS -->
+          </div>
+        </div>
+
+        <!-- Interactive Dual-Unit Size Guide -->
+        <div id="modal-size-guide-container"></div>
+
+        <!-- Construction Features -->
+        <div style="margin-top: 10px;">
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-tertiary); letter-spacing: 0.06em;">Atelier Highlights</span>
+          <ul id="modal-features" style="font-size: 12px; color: var(--text-secondary); padding-left: 18px; margin-top: 6px; line-height: 1.6;">
+          </ul>
+        </div>
+
+        <button class="btn-primary" id="modal-add-bag-btn" style="width: 100%; justify-content: center; padding: 16px; margin-top: 14px;">
+          <span>Add to Bag</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping Bag Slide-Over Drawer -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-backdrop" role="dialog" aria-modal="true" aria-label="Shopping Bag" aria-hidden="true" inert>
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 class="cart-title">Your Bag</h3>
+        <button class="modal-close-btn" id="cart-close-btn" aria-label="Close Bag">&times;</button>
+      </div>
+
+      <div class="cart-items-scroll" id="cart-items-container">
+        <!-- Populated by js/cart.js -->
+      </div>
+
+      <div class="cart-footer">
+        <!-- Promo Code Input -->
+        <div class="promo-row">
+          <input type="text" class="promo-input" id="cart-promo-input" placeholder="Enter promo code" aria-label="Promo code">
+          <button class="promo-btn" id="apply-promo-btn">Apply</button>
+        </div>
+        <p id="promo-status-msg" style="font-size: 11px; display: none; margin-top: 4px;"></p>
+
+        <!-- Summary Calculations -->
+        <div class="cart-summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-line" id="cart-discount-row" style="display: none; color: var(--accent-emerald);">
+          <span>Order Discount</span>
+          <span id="cart-discount-val">-$0.00</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Complimentary Express Delivery</span>
+          <span style="color: var(--accent-emerald); font-weight: 600;">Free</span>
+        </div>
+        <div class="cart-summary-line total">
+          <span>Total</span>
+          <span id="cart-total" style="color: var(--accent-gold);">$0.00</span>
+        </div>
+
+        <!-- Checkout Action Button -->
+        <button class="btn-primary" id="checkout-action-btn" style="width: 100%; justify-content: center; padding: 15px; margin-top: 8px;">
+          <span>Preview demo checkout</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div class="modal-backdrop" id="checkout-modal-backdrop" role="dialog" aria-modal="true" aria-label="Order Confirmation" aria-hidden="true" inert>
+    <div class="checkout-modal-sheet" id="checkout-modal-content">
+      <!-- Populated dynamically by js/cart.js upon checkout -->
+    </div>
+  </div>
+
+  <!-- Refined Brand Footer with Customer Care & Academic Drawer -->
+  <footer class="enriched-brand-footer">
+    <div class="footer-inner">
+      <div class="footer-manifesto-row">
+        <div>
+          <div class="footer-brand-title" style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <img src="assets/logo-white-transparent.png" alt="Skyline Religion" style="width: 26px; height: 26px; object-fit: contain;">
+            <span style="font-family: var(--font-display); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">Skyline Religion</span>
+          </div>
+          <p class="footer-manifesto-text">
+            Born from the architecture, movement and contradiction of New York City. Skyline Religion builds clothing for the unhurried hours between work, movement and night.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 15px; font-weight: 700; margin-bottom: 10px; color: var(--accent-gold);">Atelier Services</h4>
+          <p class="footer-manifesto-text">
+            All garments include complimentary seam and hardware servicing. Wash cold inside out and air-dry flat to maintain original textile density.
+          </p>
+        </div>
+      </div>
+
+      <!-- Customer Care Cards with Clean SVG Icons -->
+      <div class="footer-accordions-deck">
+        <div class="footer-acc-card">
+          <div class="footer-acc-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+            Sizing &amp; Architectural Drape
+          </div>
+          <p class="footer-acc-body">Engineered with a relaxed, boxy drop-shoulder. Order true to size for our signature oversized silhouette, or step down one size for a tailored fit.</p>
+        </div>
+
+        <div class="footer-acc-card">
+          <div class="footer-acc-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 3v18"></path><path d="M3 12h18"></path></svg>
+            Cold Wash Protocol
+          </div>
+          <p class="footer-acc-body">Wash cold inside out. Flat air dry. Our 500 GSM Portuguese terry is pre-shrunk to ensure structural memory over years of wear.</p>
+        </div>
+
+        <div class="footer-acc-card">
+          <div class="footer-acc-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            Express Courier Delivery
+          </div>
+          <p class="footer-acc-body">Complimentary express shipping on all orders. Each piece is individually inspected and shipped in our matte black presentation box.</p>
+        </div>
+
+        <div class="footer-acc-card">
+          <div class="footer-acc-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            30-Day Exchange Window
+          </div>
+          <p class="footer-acc-body">Complimentary exchange window within 30 days of receipt. Try on pieces with prepaid return shipping labels included with every order.</p>
+        </div>
+      </div>
+
+      <!-- Essential Brand Footer Links -->
+      <div class="footer-bottom-row" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-glass);">
+        <div class="footer-links-row" style="display: flex; gap: 18px; flex-wrap: wrap;">
+          <a href="#catalog">Collection</a>
+          <a href="#tailoring">Tailoring</a>
+          <a href="care.html">Shipping &amp; Returns</a>
+          <a href="care.html">Size Guide</a>
+          <a href="about.html">Atelier Story</a>
+          <a href="care.html">Contact</a>
+          <a href="care.html">Privacy &amp; Terms</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+        </div>
+        <span style="font-size: 11px; color: var(--text-tertiary);">&copy; 2026 SKYLINE RELIGION. All rights reserved.</span>
+      </div>
+
+      <!-- Discrete CSCI 310 Academic Evaluation Drawer (Preserves Student Project Requirements) -->
+      <div class="academic-eval-drawer" id="academic-eval-drawer">
+        <button class="academic-drawer-trigger" id="academic-toggle-btn" aria-expanded="false" aria-controls="academic-drawer-body">
+          <div style="display: flex; align-items: center;">
+            <span class="status-dot"></span>
+            <span>CSCI 310 Academic Evaluation: 5+ Client-Side JavaScript Dynamic Effects Active</span>
+          </div>
+          <svg class="chevron-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="academic-drawer-content" id="academic-drawer-body">
+          <div class="academic-specs-grid">
+            <div class="academic-spec-card">
+              <h4>Effect 1: Real-Time Canvas Caustics</h4>
+              <p>Physics-driven refraction shader on <code>#refraction-canvas</code> tracking pointer incidence with spring physics, IntersectionObserver auto-pause, and reduced-motion support.</p>
+            </div>
+            <div class="academic-spec-card">
+              <h4>Effect 2: System-Adaptive Theme Switcher</h4>
+              <p>Bi-directional theme switcher between Obsidian and Alabaster with OS <code>prefers-color-scheme</code> synchronization and localStorage persistence.</p>
+            </div>
+            <div class="academic-spec-card">
+              <h4>Effect 3: 3D Perspective Card Tilt</h4>
+              <p>3D card hover physics with specular glare tracking and touch-device bypass for fluid native scrolling.</p>
+            </div>
+            <div class="academic-spec-card">
+              <h4>Effect 4: "Explore the Fit" Modal</h4>
+              <p>Multi-angle 360 photo inspection, real photography thumbnail switcher, focus trapping, Escape dismiss, and dual-unit (in/cm) sizing guide.</p>
+            </div>
+            <div class="academic-spec-card">
+              <h4>Effect 5: Liquid Glass Cart &amp; Checkout</h4>
+              <p>Interactive slide-over cart drawer with quantity mutators, real-time promo engine (<code>SKYLINE10</code> / <code>VIP20</code>), and itemized order review modal.</p>
+            </div>
+          </div>
+          <div class="academic-portal-link-row">
+            <a href="projects.html" class="portal-return-link">&larr; Return to Parth Singh's CSCI 310 My Project page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Modules -->
+  <script src="js/refraction.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/stylist.js"></script>
+</body>
+</html>

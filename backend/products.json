@@ -1,0 +1,1263 @@
+[
+  {
+    "id": "sr-01",
+    "slug": "skyline-arch-heavyweight-hoodie-noir",
+    "title": "Skyline Arch Heavyweight Hoodie",
+    "category": "essentials",
+    "categoryLabel": "Essentials & Fleece",
+    "price": 195,
+    "badge": "Signature Drop",
+    "gsm": "500 GSM",
+    "fabric": "100% Organic Portuguese Combed Loopback French Terry",
+    "fit": "Boxy Drop-Shoulder Architectural Drape",
+    "description": "Our signature silhouette engineered from bespoke 500 GSM Portuguese French terry. Features an unlined double-layer hood without drawstrings, articulated elbow darts, raw-edge reinforced hems, and a subtle micro-spire crest on the left wrist.",
+    "modelInfo": "Male model: 6'2\" (188cm), 180 lbs wearing Size L. Female model: 5'9\" (175cm), 130 lbs wearing Size S. Both styled for an architectural relaxed drape.",
+    "care": "Machine wash cold inside out. Flat air-dry to preserve textile density and structure.",
+    "features": [
+      "Custom 500 GSM French Terry milled in Barcelos, Portugal",
+      "Reinforced double-needle lock stitching throughout",
+      "Seamless kangaroo pocket with concealed internal card sleeve",
+      "Pre-shrunk fabric to guarantee zero dimensional shift"
+    ],
+    "images": {
+      "front": "assets/products/sr-01-front.jpg",
+      "hover": "assets/products/sr-01-hover.jpg",
+      "back": "assets/products/sr-01-back.jpg",
+      "detail": "assets/products/sr-01-detail.jpg",
+      "lifestyle": "assets/products/sr-01-lifestyle.jpg"
+    },
+    "sizes": [
+      {
+        "size": "S",
+        "stock": 8
+      },
+      {
+        "size": "M",
+        "stock": 14
+      },
+      {
+        "size": "L",
+        "stock": 19
+      },
+      {
+        "size": "XL",
+        "stock": 6
+      },
+      {
+        "size": "XXL",
+        "stock": 3
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Chest",
+        "Length",
+        "Shoulder",
+        "Sleeve"
+      ],
+      "rows": [
+        {
+          "size": "S",
+          "in": [
+            "44",
+            "27.5",
+            "22",
+            "24.5"
+          ],
+          "cm": [
+            "112",
+            "70",
+            "56",
+            "62"
+          ]
+        },
+        {
+          "size": "M",
+          "in": [
+            "47",
+            "28.5",
+            "23",
+            "25.5"
+          ],
+          "cm": [
+            "119",
+            "72",
+            "58",
+            "65"
+          ]
+        },
+        {
+          "size": "L",
+          "in": [
+            "50",
+            "29.5",
+            "24",
+            "26.5"
+          ],
+          "cm": [
+            "127",
+            "75",
+            "61",
+            "67"
+          ]
+        },
+        {
+          "size": "XL",
+          "in": [
+            "53",
+            "30.5",
+            "25",
+            "27.0"
+          ],
+          "cm": [
+            "135",
+            "77",
+            "63",
+            "69"
+          ]
+        },
+        {
+          "size": "XXL",
+          "in": [
+            "56",
+            "31.5",
+            "26",
+            "27.5"
+          ],
+          "cm": [
+            "142",
+            "80",
+            "66",
+            "70"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-02",
+    "slug": "skyline-arch-heavyweight-hoodie-cream",
+    "title": "Skyline Arch Hoodie — Alabaster",
+    "category": "essentials",
+    "categoryLabel": "Essentials & Fleece",
+    "price": 195,
+    "badge": "New Colorway",
+    "gsm": "500 GSM",
+    "fabric": "100% Unbleached Organic French Terry",
+    "fit": "Boxy Drop-Shoulder Architectural Drape",
+    "description": "Rendered in unbleached natural alabaster cream with delicate oat grain flecks. Heavyweight 500 GSM loopback drape provides protective warmth with a clean, sculptural aesthetic.",
+    "modelInfo": "Male model: 6'1\" (185cm) wearing Size M. Female model: 5'8\" (173cm) wearing Size S.",
+    "care": "Gentle cold wash with light colors. Lay flat on dry surface.",
+    "features": [
+      "500 GSM unbleached organic cotton",
+      "Dense double-knit hood construction",
+      "Articulated underarm gussets for fluid arm rotation",
+      "Micro-embroidered tonal skyline mark on hem"
+    ],
+    "images": {
+      "front": "assets/products/sr-02-front.jpg",
+      "hover": "assets/products/sr-02-hover.jpg",
+      "back": "assets/products/sr-02-back.jpg",
+      "detail": "assets/products/sr-02-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "S",
+        "stock": 6
+      },
+      {
+        "size": "M",
+        "stock": 12
+      },
+      {
+        "size": "L",
+        "stock": 15
+      },
+      {
+        "size": "XL",
+        "stock": 4
+      },
+      {
+        "size": "XXL",
+        "stock": 2
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Chest",
+        "Length",
+        "Shoulder",
+        "Sleeve"
+      ],
+      "rows": [
+        {
+          "size": "S",
+          "in": [
+            "44",
+            "27.5",
+            "22",
+            "24.5"
+          ],
+          "cm": [
+            "112",
+            "70",
+            "56",
+            "62"
+          ]
+        },
+        {
+          "size": "M",
+          "in": [
+            "47",
+            "28.5",
+            "23",
+            "25.5"
+          ],
+          "cm": [
+            "119",
+            "72",
+            "58",
+            "65"
+          ]
+        },
+        {
+          "size": "L",
+          "in": [
+            "50",
+            "29.5",
+            "24",
+            "26.5"
+          ],
+          "cm": [
+            "127",
+            "75",
+            "61",
+            "67"
+          ]
+        },
+        {
+          "size": "XL",
+          "in": [
+            "53",
+            "30.5",
+            "25",
+            "27.0"
+          ],
+          "cm": [
+            "135",
+            "77",
+            "63",
+            "69"
+          ]
+        },
+        {
+          "size": "XXL",
+          "in": [
+            "56",
+            "31.5",
+            "26",
+            "27.5"
+          ],
+          "cm": [
+            "142",
+            "80",
+            "66",
+            "70"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-03",
+    "slug": "sacred-drape-boxy-minimal-tee",
+    "title": "Sacred Drape Boxy Minimal Tee",
+    "category": "essentials",
+    "categoryLabel": "Essentials & Fleece",
+    "price": 95,
+    "badge": "Foundation Piece",
+    "gsm": "280 GSM",
+    "fabric": "Combed Long-Staple Cotton Luxury Single Jersey",
+    "fit": "Wide-Cut Relaxed Boxy Silhouette",
+    "description": "The quintessential foundational t-shirt. Constructed with a 1.25\" seamless double-ribbed collar that never rolls or sags. The heavyweight 280 GSM jersey hangs cleanly away from the frame.",
+    "modelInfo": "Male model: 6'0\" (183cm), 172 lbs wearing Size M. Female model: 5'8\" (173cm) wearing Size S.",
+    "care": "Machine wash cold. Do not tumble dry.",
+    "features": [
+      "280 GSM combed long-staple cotton",
+      "Thick shape-retaining seamless ribbed collar",
+      "Blind-stitched sleeve openings and waistline",
+      "Preshrunk yarn with enzyme wash finish"
+    ],
+    "images": {
+      "front": "assets/products/sr-03-front.jpg",
+      "hover": "assets/products/sr-03-hover.jpg",
+      "back": "assets/products/sr-03-back.jpg",
+      "detail": "assets/products/sr-03-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "S",
+        "stock": 16
+      },
+      {
+        "size": "M",
+        "stock": 25
+      },
+      {
+        "size": "L",
+        "stock": 22
+      },
+      {
+        "size": "XL",
+        "stock": 10
+      },
+      {
+        "size": "XXL",
+        "stock": 5
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Chest",
+        "Length",
+        "Shoulder",
+        "Sleeve"
+      ],
+      "rows": [
+        {
+          "size": "S",
+          "in": [
+            "42",
+            "28.0",
+            "20.5",
+            "9.0"
+          ],
+          "cm": [
+            "107",
+            "71",
+            "52",
+            "23"
+          ]
+        },
+        {
+          "size": "M",
+          "in": [
+            "45",
+            "29.0",
+            "21.5",
+            "9.5"
+          ],
+          "cm": [
+            "114",
+            "74",
+            "55",
+            "24"
+          ]
+        },
+        {
+          "size": "L",
+          "in": [
+            "48",
+            "30.0",
+            "22.5",
+            "10.0"
+          ],
+          "cm": [
+            "122",
+            "76",
+            "57",
+            "25"
+          ]
+        },
+        {
+          "size": "XL",
+          "in": [
+            "51",
+            "31.0",
+            "23.5",
+            "10.5"
+          ],
+          "cm": [
+            "130",
+            "79",
+            "60",
+            "27"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-04",
+    "slug": "metropolitan-relaxed-evening-suit",
+    "title": "Metropolitan Relaxed Evening Suit",
+    "category": "tailoring",
+    "categoryLabel": "Tailoring & Suiting",
+    "price": 580,
+    "badge": "Signature Suiting",
+    "gsm": "340 GSM",
+    "fabric": "Italian Virgin Wool & Mulberry Silk Gabardine",
+    "fit": "Deconstructed Fluid Tailoring",
+    "description": "A tailored collision of Savile Row discipline and Lower Manhattan midnight rhythm. Soft unpadded shoulders, floating canvas interior, and relaxed trousers that pool effortlessly over heavy footwear.",
+    "modelInfo": "Male model: 6'2\" wearing Size 40R (L). Female model: 5'9\" wearing Size 36R (S). Both styled relaxed.",
+    "care": "Dry clean only. Store on shaped wooden coat hanger.",
+    "features": [
+      "Italian 340 GSM virgin wool & silk blend",
+      "Full cupro breathable jacquard lining",
+      "Horn buttons with hand-wound shanks",
+      "Wide forward-pleat trousers with interior waist adjusters"
+    ],
+    "images": {
+      "front": "assets/products/sr-04-front.jpg",
+      "hover": "assets/products/sr-04-hover.jpg",
+      "back": "assets/products/sr-04-front.jpg",
+      "detail": "assets/products/sr-04-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "36R",
+        "stock": 4
+      },
+      {
+        "size": "38R",
+        "stock": 8
+      },
+      {
+        "size": "40R",
+        "stock": 11
+      },
+      {
+        "size": "42R",
+        "stock": 5
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Chest",
+        "Waist",
+        "Inseam",
+        "Jacket Lgth"
+      ],
+      "rows": [
+        {
+          "size": "36R",
+          "in": [
+            "38",
+            "30",
+            "31.5",
+            "29.5"
+          ],
+          "cm": [
+            "96",
+            "76",
+            "80",
+            "75"
+          ]
+        },
+        {
+          "size": "38R",
+          "in": [
+            "40",
+            "32",
+            "32.0",
+            "30.0"
+          ],
+          "cm": [
+            "102",
+            "81",
+            "81",
+            "76"
+          ]
+        },
+        {
+          "size": "40R",
+          "in": [
+            "42",
+            "34",
+            "32.5",
+            "30.5"
+          ],
+          "cm": [
+            "107",
+            "86",
+            "83",
+            "77"
+          ]
+        },
+        {
+          "size": "42R",
+          "in": [
+            "44",
+            "36",
+            "33.0",
+            "31.0"
+          ],
+          "cm": [
+            "112",
+            "91",
+            "84",
+            "79"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-05",
+    "slug": "structure-oversized-city-blazer",
+    "title": "Structure Oversized City Blazer",
+    "category": "tailoring",
+    "categoryLabel": "Tailoring & Suiting",
+    "price": 340,
+    "badge": "Editorial Cut",
+    "gsm": "380 GSM",
+    "fabric": "Heavyweight Worsted Wool Twill",
+    "fit": "Exaggerated Architectural Silhouette",
+    "description": "Engineered for dynamic city movement. Features bold peaked lapels, functional surgeon cuffs, and structured drop shoulders that drape naturally over both tailored trousers and vintage denim.",
+    "modelInfo": "Model: 5'9\" (175cm) wearing Size S for an oversized runway drape.",
+    "care": "Specialist dry clean only.",
+    "features": [
+      "380 GSM worsted wool twill from Biella, Italy",
+      "Double-breasted front with matte horn buttons",
+      "Deep interior smartphone and passport jet pockets",
+      "Subtle interior skyline coordinates label"
+    ],
+    "images": {
+      "front": "assets/products/sr-05-front.jpg",
+      "hover": "assets/products/sr-05-hover.jpg",
+      "back": "assets/products/sr-05-front.jpg",
+      "detail": "assets/products/sr-05-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "XS",
+        "stock": 3
+      },
+      {
+        "size": "S",
+        "stock": 7
+      },
+      {
+        "size": "M",
+        "stock": 9
+      },
+      {
+        "size": "L",
+        "stock": 4
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Bust/Chest",
+        "Length",
+        "Shoulder",
+        "Sleeve"
+      ],
+      "rows": [
+        {
+          "size": "XS",
+          "in": [
+            "40",
+            "30.0",
+            "19.5",
+            "24.0"
+          ],
+          "cm": [
+            "102",
+            "76",
+            "49",
+            "61"
+          ]
+        },
+        {
+          "size": "S",
+          "in": [
+            "43",
+            "30.5",
+            "20.5",
+            "24.5"
+          ],
+          "cm": [
+            "109",
+            "77",
+            "52",
+            "62"
+          ]
+        },
+        {
+          "size": "M",
+          "in": [
+            "46",
+            "31.0",
+            "21.5",
+            "25.0"
+          ],
+          "cm": [
+            "117",
+            "79",
+            "55",
+            "64"
+          ]
+        },
+        {
+          "size": "L",
+          "in": [
+            "49",
+            "31.5",
+            "22.5",
+            "25.5"
+          ],
+          "cm": [
+            "124",
+            "80",
+            "57",
+            "65"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-06",
+    "slug": "empire-relaxed-pleated-trousers",
+    "title": "Empire Relaxed Pleated Trousers",
+    "category": "tailoring",
+    "categoryLabel": "Tailoring & Suiting",
+    "price": 220,
+    "badge": "Architectural Cut",
+    "gsm": "310 GSM",
+    "fabric": "Wool-Viscose Fluid Gabardine",
+    "fit": "High-Rise Wide-Leg with Forward Pleats",
+    "description": "Twin forward pleats deliver a sculptural, fluid drape that commands attention while in stride. Outfitted with hidden interior waist cinch tabs for an exact fit without belt loops.",
+    "modelInfo": "Male model: 6'1\" (185cm), 31\" waist wearing Size 32 (M). Female model: 5'9\" wearing Size 30 (S).",
+    "care": "Dry clean or steam gentle cold wash. Air-dry.",
+    "features": [
+      "Fluid 310 GSM wool-viscose blend",
+      "Double forward pleat tailoring",
+      "Concealed side-seam slash pockets",
+      "Extra wide 24\" bottom leg opening"
+    ],
+    "images": {
+      "front": "assets/products/sr-06-front.jpg",
+      "hover": "assets/products/sr-06-hover.jpg",
+      "back": "assets/products/sr-06-front.jpg",
+      "detail": "assets/products/sr-06-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "30",
+        "stock": 5
+      },
+      {
+        "size": "32",
+        "stock": 11
+      },
+      {
+        "size": "34",
+        "stock": 8
+      },
+      {
+        "size": "36",
+        "stock": 3
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Waist",
+        "Inseam",
+        "Rise",
+        "Leg Open"
+      ],
+      "rows": [
+        {
+          "size": "30",
+          "in": [
+            "30.5",
+            "31.5",
+            "13.0",
+            "23.0"
+          ],
+          "cm": [
+            "77",
+            "80",
+            "33",
+            "58"
+          ]
+        },
+        {
+          "size": "32",
+          "in": [
+            "32.5",
+            "32.0",
+            "13.5",
+            "24.0"
+          ],
+          "cm": [
+            "82",
+            "81",
+            "34",
+            "61"
+          ]
+        },
+        {
+          "size": "34",
+          "in": [
+            "34.5",
+            "32.5",
+            "14.0",
+            "24.5"
+          ],
+          "cm": [
+            "88",
+            "83",
+            "36",
+            "62"
+          ]
+        },
+        {
+          "size": "36",
+          "in": [
+            "36.5",
+            "33.0",
+            "14.5",
+            "25.0"
+          ],
+          "cm": [
+            "93",
+            "84",
+            "37",
+            "63"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-07",
+    "slug": "kinetic-architectural-training-joggers",
+    "title": "Kinetic Interlock Training Joggers",
+    "category": "movement",
+    "categoryLabel": "Movement & Athletics",
+    "price": 165,
+    "badge": "Core Movement",
+    "gsm": "420 GSM",
+    "fabric": "High-Density Double-Knit Cotton Interlock",
+    "fit": "Ergonomic Taper with Articulated Knee Darts",
+    "description": "Engineered for morning athletic training and evening city transit. Dense 420 GSM double-knit cotton retains form permanently without bagging at the knees. Concealed AquaGuard pocket zippers.",
+    "modelInfo": "Model: 6'0\" (183cm), 175 lbs athletic build wearing Size M.",
+    "care": "Machine wash cold. Line dry in shade.",
+    "features": [
+      "420 GSM double-knit cotton interlock with structural memory",
+      "Ergonomic articulated knee darts",
+      "YKK AquaGuard waterproof zipper pockets",
+      "Heavy braided tubular drawstrings with silver aglets"
+    ],
+    "images": {
+      "front": "assets/products/sr-07-front.jpg",
+      "hover": "assets/products/sr-07-hover.jpg",
+      "back": "assets/products/sr-07-back.jpg",
+      "detail": "assets/products/sr-07-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "S",
+        "stock": 9
+      },
+      {
+        "size": "M",
+        "stock": 16
+      },
+      {
+        "size": "L",
+        "stock": 14
+      },
+      {
+        "size": "XL",
+        "stock": 5
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Waist",
+        "Inseam",
+        "Hip",
+        "Rise"
+      ],
+      "rows": [
+        {
+          "size": "S",
+          "in": [
+            "29-31",
+            "30.0",
+            "40",
+            "11.5"
+          ],
+          "cm": [
+            "74-79",
+            "76",
+            "102",
+            "29"
+          ]
+        },
+        {
+          "size": "M",
+          "in": [
+            "32-34",
+            "30.5",
+            "43",
+            "12.0"
+          ],
+          "cm": [
+            "81-86",
+            "77",
+            "109",
+            "30"
+          ]
+        },
+        {
+          "size": "L",
+          "in": [
+            "35-37",
+            "31.0",
+            "46",
+            "12.5"
+          ],
+          "cm": [
+            "89-94",
+            "79",
+            "117",
+            "32"
+          ]
+        },
+        {
+          "size": "XL",
+          "in": [
+            "38-40",
+            "31.5",
+            "49",
+            "13.0"
+          ],
+          "cm": [
+            "96-102",
+            "80",
+            "124",
+            "33"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-08",
+    "slug": "skyline-sanctuary-graphic-back-zip-hoodie",
+    "title": "Sanctuary Graphic Back Zip Hoodie",
+    "category": "essentials",
+    "categoryLabel": "Essentials & Fleece",
+    "price": 210,
+    "badge": "Graphic Drop",
+    "gsm": "520 GSM",
+    "fabric": "Dense Portuguese Loopback Fleece",
+    "fit": "Structured Boxy Two-Way Zip",
+    "description": "Features the monumental architectural Skyline Religion back elevation graphic printed in high-density matte ink. Outfitted with custom-cast matte-nickel two-way hardware for personalized layering.",
+    "modelInfo": "Male model: 6'2\" (188cm) wearing Size L. Female model: 5'8\" wearing Size S.",
+    "care": "Dry clean or wash cold inside out with zipper closed.",
+    "features": [
+      "Custom cast matte-nickel #8 two-way zipper",
+      "High-density matte back graphic art print",
+      "Dual thermal-lined hand warmers",
+      "Dropped shoulder seams with articulated elbow darts"
+    ],
+    "images": {
+      "front": "assets/products/sr-08-front.jpg",
+      "hover": "assets/products/sr-08-hover.jpg",
+      "back": "assets/products/sr-08-back.jpg",
+      "detail": "assets/products/sr-08-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "S",
+        "stock": 5
+      },
+      {
+        "size": "M",
+        "stock": 10
+      },
+      {
+        "size": "L",
+        "stock": 12
+      },
+      {
+        "size": "XL",
+        "stock": 4
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Chest",
+        "Length",
+        "Shoulder",
+        "Sleeve"
+      ],
+      "rows": [
+        {
+          "size": "S",
+          "in": [
+            "44",
+            "27.5",
+            "22",
+            "24.5"
+          ],
+          "cm": [
+            "112",
+            "70",
+            "56",
+            "62"
+          ]
+        },
+        {
+          "size": "M",
+          "in": [
+            "47",
+            "28.5",
+            "23",
+            "25.5"
+          ],
+          "cm": [
+            "119",
+            "72",
+            "58",
+            "65"
+          ]
+        },
+        {
+          "size": "L",
+          "in": [
+            "50",
+            "29.5",
+            "24",
+            "26.5"
+          ],
+          "cm": [
+            "127",
+            "75",
+            "61",
+            "67"
+          ]
+        },
+        {
+          "size": "XL",
+          "in": [
+            "53",
+            "30.5",
+            "25",
+            "27.0"
+          ],
+          "cm": [
+            "135",
+            "77",
+            "63",
+            "69"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-09",
+    "slug": "skyline-spire-structured-studio-cap",
+    "title": "Skyline Spire Structured Studio Cap",
+    "category": "outerwear",
+    "categoryLabel": "Outerwear & Acc",
+    "price": 75,
+    "badge": "Studio Edition",
+    "gsm": "380 GSM",
+    "fabric": "Heavy Washed Cotton Chino Twill",
+    "fit": "Unstructured 6-Panel Low Profile",
+    "description": "Minimalist headwear finished with a tonal embroidered micro-spire insignia on the left temple. Rear closure features a self-fabric strap with an engraved antique silver buckle.",
+    "modelInfo": "One Size Fits All (Adjustable circumference 54cm–62cm).",
+    "care": "Spot clean only with soft damp microfiber cloth.",
+    "features": [
+      "Heavy washed 380 GSM cotton chino twill",
+      "Tonal micro-spire high-density embroidery",
+      "Solid cast antique silver adjuster buckle",
+      "Curved visor with double-stitch reinforcement"
+    ],
+    "images": {
+      "front": "assets/products/sr-09-front.jpg",
+      "hover": "assets/products/sr-09-hover.jpg",
+      "back": "assets/products/sr-09-back.jpg",
+      "detail": "assets/products/sr-09-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "ONE SIZE",
+        "stock": 22
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Circumference",
+        "Crown Depth",
+        "Brim Length"
+      ],
+      "rows": [
+        {
+          "size": "ONE SIZE",
+          "in": [
+            "21.5 - 24.5",
+            "6.2",
+            "2.8"
+          ],
+          "cm": [
+            "54 - 62",
+            "16",
+            "7"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-10",
+    "slug": "studio-atelier-curated-3-piece-capsule",
+    "title": "Studio Atelier 3-Piece Wardrobe Capsule",
+    "category": "outerwear",
+    "categoryLabel": "Outerwear & Acc",
+    "price": 440,
+    "badge": "Atelier Bundle",
+    "gsm": "Multi-Density (280–500 GSM)",
+    "fabric": "Portuguese Fleece, Jersey & Double-Knit Twill",
+    "fit": "Unified Coordinated Metropolitan Wardrobe",
+    "description": "The definitive urban uniform bundle: Includes the 500 GSM Arch Hoodie, 280 GSM Boxy Tee, and 420 GSM Kinetic Joggers. Shipped in a custom magnetic matte-black presentation box.",
+    "modelInfo": "Sizing custom configured across individual garments upon checkout.",
+    "care": "Follow individual care instructions for fleece and jersey garments.",
+    "features": [
+      "Includes 3 signature pieces: Hoodie, Boxy Tee, and Kinetic Joggers",
+      "Saves $15 compared to purchasing individual pieces",
+      "Packaged in bespoke matte black rigid magnetic box",
+      "Includes numbered certificate of authentic atelier production"
+    ],
+    "images": {
+      "front": "assets/products/sr-10-front.jpg",
+      "hover": "assets/products/sr-10-hover.jpg",
+      "back": "assets/products/sr-10-front.jpg",
+      "detail": "assets/products/sr-10-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "S",
+        "stock": 5
+      },
+      {
+        "size": "M",
+        "stock": 9
+      },
+      {
+        "size": "L",
+        "stock": 7
+      },
+      {
+        "size": "XL",
+        "stock": 2
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Hoodie Chest",
+        "Tee Chest",
+        "Jogger Waist"
+      ],
+      "rows": [
+        {
+          "size": "S",
+          "in": [
+            "44",
+            "42",
+            "29-31"
+          ],
+          "cm": [
+            "112",
+            "107",
+            "74-79"
+          ]
+        },
+        {
+          "size": "M",
+          "in": [
+            "47",
+            "45",
+            "32-34"
+          ],
+          "cm": [
+            "119",
+            "114",
+            "81-86"
+          ]
+        },
+        {
+          "size": "L",
+          "in": [
+            "50",
+            "48",
+            "35-37"
+          ],
+          "cm": [
+            "127",
+            "122",
+            "89-94"
+          ]
+        },
+        {
+          "size": "XL",
+          "in": [
+            "53",
+            "51",
+            "38-40"
+          ],
+          "cm": [
+            "135",
+            "130",
+            "96-102"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-11",
+    "slug": "skyline-spire-ribbed-merino-beanie",
+    "title": "Skyline Spire Ribbed Merino Beanie",
+    "category": "outerwear",
+    "categoryLabel": "Outerwear & Acc",
+    "price": 75,
+    "badge": "Hand Knit",
+    "gsm": "100% Merino",
+    "fabric": "Extra-Fine Italian Merino Wool",
+    "fit": "Snug Fisherman Cuff",
+    "description": "Spun from 100% extra-fine Italian merino wool with a dense 7-gauge half-cardigan rib. Delivers natural thermal regulation and zero scratchiness.",
+    "modelInfo": "One Size Fits All (Standard cuff height 3.0\").",
+    "care": "Hand wash cold with wool detergent. Dry flat.",
+    "features": [
+      "100% Extra-fine Merino wool from Zegna Baruffa, Italy",
+      "7-gauge half-cardigan dense rib knit",
+      "Fold-over cuff with damask woven micro-label",
+      "Natural water repellency and odor resistance"
+    ],
+    "images": {
+      "front": "assets/products/sr-11-front.jpg",
+      "hover": "assets/products/sr-11-hover.jpg",
+      "back": "assets/products/sr-11-front.jpg",
+      "detail": "assets/products/sr-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "ONE SIZE",
+        "stock": 18
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Circumference",
+        "Height Unfolded",
+        "Height Folded"
+      ],
+      "rows": [
+        {
+          "size": "ONE SIZE",
+          "in": [
+            "19 - 24",
+            "10.5",
+            "8.0"
+          ],
+          "cm": [
+            "48 - 61",
+            "27",
+            "20"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "sr-12",
+    "slug": "monolith-rubberized-weekend-duffle",
+    "title": "Monolith Rubberized Weekend Duffle",
+    "category": "outerwear",
+    "categoryLabel": "Outerwear & Acc",
+    "price": 260,
+    "badge": "Architectural Luggage",
+    "gsm": "Weatherproof",
+    "fabric": "Matte Rubberized Polyurethane Canvas",
+    "fit": "42L Metropolitan Capacity",
+    "description": "Architectural overnight carryall designed for the metropolitan traveler. Features sealed weatherproof AquaGuard zippers, magnetic snap handles, and an isolated ventilated footwear tunnel.",
+    "modelInfo": "Meets international carry-on flight cabin regulations.",
+    "care": "Wipe clean with a damp microfiber cloth.",
+    "features": [
+      "42-Liter weatherproof rubberized ballistic shell",
+      "YKK AquaGuard waterproof zippers throughout",
+      "Isolated vented footwear and training tunnel",
+      "Detachable seatbelt webbing ergonomic shoulder strap"
+    ],
+    "images": {
+      "front": "assets/products/sr-12-front.jpg",
+      "hover": "assets/products/sr-12-hover.jpg",
+      "back": "assets/products/sr-12-front.jpg",
+      "detail": "assets/products/sr-detail.jpg"
+    },
+    "sizes": [
+      {
+        "size": "ONE SIZE",
+        "stock": 8
+      }
+    ],
+    "sizeGuide": {
+      "unit": "inches",
+      "headers": [
+        "Size",
+        "Length",
+        "Width",
+        "Height",
+        "Volume"
+      ],
+      "rows": [
+        {
+          "size": "ONE SIZE",
+          "in": [
+            "21.5",
+            "11.5",
+            "11.0",
+            "42 Liters"
+          ],
+          "cm": [
+            "55",
+            "29",
+            "28",
+            "42 L"
+          ]
+        }
+      ]
+    }
+  }
+]

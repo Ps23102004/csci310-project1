@@ -1,0 +1,208 @@
+/* ==========================================================================
+   SKYLINE RELIGION — CATEGORY-SPECIFIC ATMOSPHERIC BACKGROUND ART
+   Features high-fashion editorial models wearing garments with brand logos
+   ========================================================================== */
+
+/* 1. Sweatshirts & Hoodies: Monolithic Brutalist Stone with Model Wearing 500 GSM Hoodie */
+.art-sweatshirts-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(5, 6, 8, 0.75) 0%, rgba(0, 0, 0, 0.94) 100%),
+    radial-gradient(ellipse at 85% 15%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+    url('../assets/art/sweatshirts-art.jpg') center/cover no-repeat;
+  filter: contrast(1.05);
+}
+
+[data-theme="light"] .art-sweatshirts-bg {
+  background:
+    linear-gradient(180deg, rgba(245, 246, 249, 0.82) 0%, rgba(240, 242, 246, 0.96) 100%),
+    url('../assets/art/sweatshirts-art.jpg') center/cover no-repeat;
+}
+
+/* 2. Gym & Athletics: Kinetic High-Performance Athlete in Compression Wear */
+.art-gym-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 11, 0.75) 0%, rgba(0, 0, 0, 0.95) 100%),
+    radial-gradient(circle at 50% 0%, rgba(41, 151, 255, 0.18) 0%, transparent 60%),
+    url('../assets/art/gym-art.jpg') center/cover no-repeat;
+}
+
+[data-theme="light"] .art-gym-bg {
+  background:
+    linear-gradient(180deg, rgba(245, 246, 249, 0.82) 0%, rgba(240, 242, 246, 0.96) 100%),
+    url('../assets/art/gym-art.jpg') center/cover no-repeat;
+}
+
+.art-gym-bg .speed-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(to right, rgba(41, 151, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 151, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%);
+}
+
+.art-gym-bg .laser-beam {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 2px;
+  background: linear-gradient(180deg, transparent 0%, rgba(41, 151, 255, 0.5) 50%, transparent 100%);
+  animation: laserPulse 4s infinite ease-in-out;
+}
+
+.art-gym-bg .beam-1 { left: 22%; animation-delay: 0s; }
+.art-gym-bg .beam-2 { right: 28%; animation-delay: 2s; }
+
+@keyframes laserPulse {
+  0%, 100% { opacity: 0.15; transform: translateY(-30px); }
+  50% { opacity: 0.7; transform: translateY(30px); }
+}
+
+/* 3. Streetwear & Denim: Cozy & Bright Metropolitan Golden-Hour Skyline with Models */
+.art-streetwear-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(9, 9, 14, 0.72) 0%, rgba(0, 0, 0, 0.95) 100%),
+    radial-gradient(ellipse at 50% -10%, rgba(229, 169, 59, 0.25) 0%, transparent 60%),
+    url('../assets/art/streetwear-art.jpg') center/cover no-repeat;
+}
+
+[data-theme="light"] .art-streetwear-bg {
+  background:
+    linear-gradient(180deg, rgba(250, 247, 242, 0.82) 0%, rgba(240, 237, 230, 0.96) 100%),
+    radial-gradient(ellipse at 50% -10%, rgba(230, 180, 80, 0.3) 0%, transparent 65%),
+    url('../assets/art/streetwear-art.jpg') center/cover no-repeat;
+}
+
+.art-streetwear-bg .selvedge-tape {
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 1.5px solid #EF4444; /* Authentic Redline ID */
+  border-right: 1.5px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.7;
+}
+
+/* 4. Loungewear & Bottoms: Ambient Cloud-Terry with Relaxed Editorial Model */
+.art-loungewear-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(6, 6, 8, 0.75) 0%, rgba(0, 0, 0, 0.95) 100%),
+    radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
+    url('../assets/art/loungewear-art.jpg') center/cover no-repeat;
+}
+
+[data-theme="light"] .art-loungewear-bg {
+  background:
+    linear-gradient(180deg, rgba(250, 251, 253, 0.84) 0%, rgba(242, 243, 247, 0.96) 100%),
+    url('../assets/art/loungewear-art.jpg') center/cover no-repeat;
+}
+
+/* Category Page Specific Hero Styles */
+.category-hero-header {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 30px auto 25px;
+  padding: 48px 36px;
+  border-radius: 28px;
+  background: var(--bg-glass-card);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-glass-highlight);
+  box-shadow: var(--shadow-glass);
+  text-align: left;
+}
+
+.category-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 12px;
+}
+
+.category-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.category-hero-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+/* Technical Specification Callout Box */
+.tech-spec-callout {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-glass);
+}
+
+.tech-spec-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tech-spec-pill span:first-child {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.tech-spec-pill span:last-child {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}

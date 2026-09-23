@@ -1,0 +1,23 @@
+{
+  "name": "skyline-religion",
+  "version": "1.0.0",
+  "description": "Skyline Religion — Layback Luxury Clothing Flagship GUI & CSCI 310 Project 1 Showcase",
+  "main": "index.html",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "node backend/test-api.js",
+    "server": "PORT=3010 node backend/server.js",
+    "demo": "open index.html"
+  },
+  "keywords": [
+    "csci310",
+    "gui-programming",
+    "skyline-religion",
+    "luxury-streetwear",
+    "apple-design",
+    "liquid-glass",
+    "light-refraction"
+  ],
+  "author": "Parth Singh",
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "skyline-religion-backend",
+  "version": "1.0.0",
+  "description": "Skyline Religion REST API Server & Order Simulator for CSCI 310",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-api.js"
+  },
+  "keywords": ["skyline-religion", "luxury-streetwear", "rest-api", "csci310"],
+  "author": "Parth Singh",
+  "license": "MIT"
+}

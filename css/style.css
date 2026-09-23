@@ -1,0 +1,411 @@
+/* ==========================================================================
+   CSCI 310: GUI & GAME PROGRAMMING — PROJECT 1
+   Personal Work Demo Portal & Course Project Grid
+   ========================================================================== */
+
+@import url('./apple-tokens.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-text);
+  background: var(--bg-base);
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glass Navigation Bar */
+.site-nav {
+  width: 100%;
+  max-width: 960px;
+  margin: 20px auto 0;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 9999px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 16px;
+  z-index: 50;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.brand-logo-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle-btn {
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--border-glass-highlight);
+  transform: scale(1.03);
+}
+
+.nav-link-btn {
+  background: var(--text-primary);
+  color: var(--bg-base);
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all var(--transition-fast);
+}
+
+.nav-link-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Personal Introduction / Bio Header */
+.personal-bio-card {
+  width: 100%;
+  max-width: 720px;
+  margin: 32px auto 20px;
+  padding: 28px;
+  background: var(--bg-glass-card);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  box-shadow: var(--shadow-glass);
+  text-align: left;
+}
+
+.bio-badge {
+  display: inline-block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.bio-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.bio-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.bio-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border-glass);
+  padding-top: 12px;
+}
+
+.bio-meta span strong {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   CSCI 310 PROJECT 1 REQUIRED SPECIFICATION:
+   Desktop Layout: Container 720px, Outer Margins 40px left/right
+   Grid: 2 rows of 3 cols (6 blocks)
+   Block Image: 200px width x 150px height
+   Spacing: 25px below "My Project" header, 20px col gap, 25px row gap
+   ========================================================================== */
+
+.projects-section-container {
+  width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.my-project-header {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  text-align: left;
+  margin-bottom: 25px; /* Explicit 25px spacing per course spec */
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.my-project-header span {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 200px); /* 3 columns of 200px */
+  column-gap: 20px; /* Explicit 20px horizontal gap per course spec */
+  row-gap: 25px;    /* Explicit 25px vertical gap per course spec */
+  justify-content: center;
+}
+
+.project-block {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-glass-card);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.project-block:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glass-highlight);
+  box-shadow: var(--shadow-md);
+}
+
+.project-block.featured-block {
+  border-color: var(--accent-gold);
+  position: relative;
+}
+
+.project-block.featured-block::after {
+  content: "ACTIVE DEMO";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--accent-gold);
+  color: #000;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+}
+
+.project-image-container {
+  width: 200px;
+  height: 150px; /* Explicit 200x150 dimensions per course spec */
+  position: relative;
+  background: #181B26;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-copy { display: none; }
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.project-block:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-placeholder-visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+.project-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.project-description {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   MOBILE LAYOUT SPECIFICATION — iPhone 12 Pro (390px Viewport)
+   Container Width: 300px (45px outer side margins on 390px viewport)
+   Grid: 3 rows of 2 columns (6 blocks)
+   Block Image Dimensions: 120px width x 90px height
+   Spacing: 10px below header, 10px horizontal gap, 10px vertical gap
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+  .site-nav {
+    width: min(90%, 400px);
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand-badge { min-width: 0; font-size: 13px; }
+  .nav-actions { width: 100%; justify-content: space-between; }
+  .nav-link-btn { white-space: nowrap; font-size: 12px; }
+
+  .personal-bio-card {
+    width: 300px;
+    padding: 18px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+
+  .bio-title {
+    font-size: 20px;
+  }
+
+  .projects-section-container {
+    width: 300px; /* Explicit 300px container width */
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+
+  .my-project-header {
+    font-size: 20px;
+    margin-bottom: 10px; /* Explicit 10px below header per course spec */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 120px); /* 2 columns of 120px */
+    column-gap: 10px; /* Explicit 10px horizontal gap per course spec */
+    row-gap: 10px;    /* Explicit 10px vertical gap per course spec */
+    justify-content: center;
+  }
+
+  .project-block {
+    width: 120px;
+    border-radius: 10px;
+  }
+
+  .project-image-container {
+    width: 120px;
+    height: 90px; /* Explicit 120x90 dimensions per course spec */
+  }
+
+  .project-info {
+    padding: 8px 6px;
+  }
+
+  .project-title {
+    font-size: 12px;
+  }
+
+  .desktop-copy { display: none; }
+  .mobile-copy { display: inline; }
+
+  .project-description {
+    font-size: 9px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Footer & Course Metadata */
+.page-footer {
+  margin-top: auto;
+  width: 100%;
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border-glass);
+}
